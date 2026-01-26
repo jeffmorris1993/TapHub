@@ -1,0 +1,263 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Public Landing Page Contract",
+  "description": "Mock API contract for GET /api/v1/public/landing-page",
+  "type": "object",
+  "properties": {
+    "contactInfo": {
+      "type": "object",
+      "properties": {
+        "churchName": {
+          "type": "string",
+          "example": "Nehemiah's Temple of the Apostolic Faith"
+        },
+        "tagline": {
+          "type": "string",
+          "example": "Come As You Are and Change As You Come"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "example": "27303 Palmer St"
+            },
+            "cityStateZip": {
+              "type": "string",
+              "example": "Madison Heights, MI 48071"
+            },
+            "full": {
+              "type": "string",
+              "example": "27303 Palmer St, Madison Heights, MI 48071"
+            }
+          },
+          "required": ["street", "cityStateZip", "full"]
+        },
+        "phone": {
+          "type": "string",
+          "pattern": "^\\([0-9]{3}\\) [0-9]{3}-[0-9]{4}$",
+          "example": "(555) 123-4567"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "example": "info@nehtemple.org"
+        },
+        "website": {
+          "type": "string",
+          "format": "uri",
+          "example": "https://nehtemple.org"
+        }
+      },
+      "required": ["churchName", "tagline", "address", "phone"]
+    },
+    "hero": {
+      "type": "object",
+      "properties": {
+        "imageUrl": {
+          "type": "string",
+          "example": "/hero-image.jpg"
+        },
+        "imageAlt": {
+          "type": "string",
+          "example": "Church leadership welcoming visitors"
+        },
+        "heading": {
+          "type": "string",
+          "example": "Welcome! 👋"
+        },
+        "subtitle": {
+          "type": "string",
+          "example": "Choose an option below to get started"
+        },
+        "showOverlay": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "required": ["imageUrl", "imageAlt", "heading", "subtitle"]
+    },
+    "navigationItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "example": "new-here"
+          },
+          "icon": {
+            "type": "string",
+            "example": "user"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50,
+            "example": "I'm New Here"
+          },
+          "subtitle": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "example": "Connect with us"
+          },
+          "route": {
+            "type": "string",
+            "pattern": "^\\/.*",
+            "example": "/new-visitor"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 1
+          },
+          "enabled": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": ["id", "icon", "title", "subtitle", "route", "order", "enabled"]
+      },
+      "minItems": 1
+    },
+    "serviceTimes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "example": "sunday-morning"
+          },
+          "day": {
+            "type": "string",
+            "enum": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "example": "Sunday"
+          },
+          "time": {
+            "type": "string",
+            "pattern": "^([0-9]{1,2}):([0-9]{2}) (AM|PM)$",
+            "example": "10:00 AM"
+          },
+          "serviceName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "example": "Main Worship Service"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 1
+          }
+        },
+        "required": ["id", "day", "time", "serviceName", "order"]
+      },
+      "minItems": 1
+    }
+  },
+  "required": ["contactInfo", "hero", "navigationItems", "serviceTimes"],
+  "example": {
+    "contactInfo": {
+      "churchName": "Nehemiah's Temple of the Apostolic Faith",
+      "tagline": "Come As You Are and Change As You Come",
+      "address": {
+        "street": "27303 Palmer St",
+        "cityStateZip": "Madison Heights, MI 48071",
+        "full": "27303 Palmer St, Madison Heights, MI 48071"
+      },
+      "phone": "(555) 123-4567",
+      "email": "info@nehtemple.org",
+      "website": "https://nehtemple.org"
+    },
+    "hero": {
+      "imageUrl": "/hero-image.jpg",
+      "imageAlt": "Church leadership welcoming visitors",
+      "heading": "Welcome! 👋",
+      "subtitle": "Choose an option below to get started",
+      "showOverlay": true
+    },
+    "navigationItems": [
+      {
+        "id": "new-here",
+        "icon": "user",
+        "title": "I'm New Here",
+        "subtitle": "Connect with us",
+        "route": "/new-visitor",
+        "order": 1,
+        "enabled": true
+      },
+      {
+        "id": "today",
+        "icon": "calendar",
+        "title": "Today at Nehemiah",
+        "subtitle": "See what's happening",
+        "route": "/today",
+        "order": 2,
+        "enabled": true
+      },
+      {
+        "id": "events",
+        "icon": "calendar-check",
+        "title": "Events & Signups",
+        "subtitle": "View upcoming events",
+        "route": "/events",
+        "order": 3,
+        "enabled": true
+      },
+      {
+        "id": "kids-youth",
+        "icon": "users",
+        "title": "Kids + Youth Hub",
+        "subtitle": "Programs for families",
+        "route": "/kids-youth",
+        "order": 4,
+        "enabled": true
+      },
+      {
+        "id": "give",
+        "icon": "gift",
+        "title": "Give",
+        "subtitle": "Support our mission",
+        "route": "/give",
+        "order": 5,
+        "enabled": true
+      },
+      {
+        "id": "feedback",
+        "icon": "message-circle",
+        "title": "Feedback / Prayer",
+        "subtitle": "Share with us",
+        "route": "/feedback",
+        "order": 6,
+        "enabled": true
+      }
+    ],
+    "serviceTimes": [
+      {
+        "id": "sunday-morning",
+        "day": "Sunday",
+        "time": "10:00 AM",
+        "serviceName": "Main Worship Service",
+        "order": 1
+      },
+      {
+        "id": "sunday-evening",
+        "day": "Sunday",
+        "time": "6:00 PM",
+        "serviceName": "Evening Service",
+        "order": 2
+      },
+      {
+        "id": "wednesday",
+        "day": "Wednesday",
+        "time": "7:00 PM",
+        "serviceName": "Bible Study",
+        "order": 3
+      }
+    ]
+  }
+}
