@@ -5,6 +5,16 @@
 **Status**: Draft
 **Input**: User description: "create a spec for the public landing page of Tap Hub. this would be the Public Landing page - Light Mode layer in the Public page of figma, refer to that to understand what is needed for the spec"
 
+## Clarifications
+
+### Session 2026-01-25
+
+- Q: Security protocol for page delivery? → A: HTTPS only (HTTP redirects to HTTPS), with Content Security Policy and security headers
+- Q: Which accessibility standard should the page follow? → A: WCAG 2.1 Level AA compliance (industry standard, covers most accessibility needs)
+- Q: Should user behavior be tracked for analytics? → A: Privacy-respecting aggregate analytics only (page views, popular features, no individual tracking)
+- Q: Should the page work offline after initial load? → A: Basic offline support (cache static content only, navigation requires connectivity)
+- Q: What should the "Need help?" footer link do? → A: Remove "Need help?" link entirely (not needed for MVP)
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - First-Time Visitor Orientation (Priority: P1)
@@ -43,21 +53,6 @@ Visitors who prefer traditional navigation can use the header menu to quickly ju
 
 ---
 
-### User Story 3 - Help Access (Priority: P3)
-
-Visitors who need assistance can access help resources through a footer link.
-
-**Why this priority**: Nice-to-have feature that provides additional support avenue. Lower priority as phone number and address are already visible on landing page.
-
-**Independent Test**: Can be tested by scrolling to footer and clicking "Need help?" link to verify help resource appears.
-
-**Acceptance Scenarios**:
-
-1. **Given** the visitor scrolls to the bottom of the landing page, **When** they view the footer, **Then** they see a "Need help?" link
-2. **Given** the "Need help?" link is visible, **When** the visitor clicks it, **Then** they see help resources or contact options
-
----
-
 ### Edge Cases
 
 - What happens when the hero image fails to load? (Display church name and tagline with fallback background color)
@@ -65,6 +60,7 @@ Visitors who need assistance can access help resources through a footer link.
 - How does the page handle slow network connections from mobile devices? (Progressive loading with content skeleton/placeholders)
 - What happens when JavaScript is disabled? (All navigation links still function as standard HTML links)
 - How does the page adapt to various screen sizes (mobile phones, tablets, desktops)? (Responsive design with mobile-first approach)
+- What happens when visitor returns to page without network connectivity? (Display cached landing page content; show friendly message if they attempt navigation requiring connectivity)
 
 ## Requirements *(mandatory)*
 
@@ -79,12 +75,15 @@ Visitors who need assistance can access help resources through a footer link.
 - **FR-007**: Page MUST display church contact information: address "27303 Palmer St, Madison Heights, MI 48071" and phone "(555) 123-4567"
 - **FR-008**: Header MUST display church logo, church name, "Tap Hub" subtitle, and "Admin" button
 - **FR-009**: Header navigation (desktop/tablet only) MUST display links for "Home", "Today", "Events", "Kids", "Give"
-- **FR-010**: Footer MUST display "Need help?" link
-- **FR-011**: Page MUST load within 2 seconds on 3G mobile connections
-- **FR-012**: All interactive elements (cards, buttons, links) MUST provide visual feedback on tap/click
-- **FR-013**: Page MUST be fully responsive and mobile-first, optimized for tap targets
-- **FR-014**: Page MUST be accessible via both NFC tag scan and QR code scan
-- **FR-015**: Navigation cards MUST route to corresponding pages: "I'm New Here" → new visitor form, "Today at Nehemiah" → today's schedule, "Events & Signups" → events listing, "Kids + Youth Hub" → kids ministry info, "Give" → giving page, "Feedback / Prayer" → feedback/prayer form
+- **FR-010**: Page MUST load within 2 seconds on 3G mobile connections
+- **FR-011**: All interactive elements (cards, buttons, links) MUST provide visual feedback on tap/click
+- **FR-012**: Page MUST be fully responsive and mobile-first, optimized for tap targets
+- **FR-013**: Page MUST be accessible via both NFC tag scan and QR code scan
+- **FR-014**: Navigation cards MUST route to corresponding pages: "I'm New Here" → new visitor form, "Today at Nehemiah" → today's schedule, "Events & Signups" → events listing, "Kids + Youth Hub" → kids ministry info, "Give" → giving page, "Feedback / Prayer" → feedback/prayer form
+- **FR-015**: Page MUST be served over HTTPS only, with HTTP requests automatically redirected to HTTPS, and MUST include Content Security Policy headers to prevent XSS attacks
+- **FR-016**: Page MUST meet WCAG 2.1 Level AA compliance standards including sufficient color contrast ratios, keyboard navigation support, screen reader compatibility, and semantic HTML structure
+- **FR-017**: Page MUST track aggregate usage metrics (page views, navigation card click counts, average time on page) without identifying individual visitors or storing personally identifiable information
+- **FR-018**: Page MUST cache static content (HTML, CSS, images, icons) for offline viewing after initial load, while navigation to other pages requires network connectivity
 
 ### Key Entities
 
@@ -103,3 +102,4 @@ Visitors who need assistance can access help resources through a footer link.
 - **SC-005**: Page achieves Google Lighthouse performance score of 90+ on mobile devices
 - **SC-006**: Zero navigation errors when visitors tap any of the six primary navigation cards
 - **SC-007**: Church contact information (address and phone) is visible without scrolling on 50%+ of mobile devices in portrait mode
+- **SC-008**: Page passes automated WCAG 2.1 Level AA accessibility validation with zero critical violations
