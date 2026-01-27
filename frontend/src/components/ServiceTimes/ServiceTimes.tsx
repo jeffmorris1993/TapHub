@@ -1,11 +1,15 @@
+import { Calendar } from 'lucide-react';
 import type { ServiceTime } from '@/types';
 import {
   ServiceTimesContainer,
   ServiceTimesHeader,
-  ClockIcon,
   ServiceTimesHeading,
   ServiceList,
   ServiceItem,
+  ServiceInfo,
+  ServiceDay,
+  ServiceName,
+  ServiceTimeText,
 } from './ServiceTimes.styles';
 
 export interface ServiceTimesProps {
@@ -26,9 +30,7 @@ export const ServiceTimes: React.FC<ServiceTimesProps> = ({ services }) => {
   return (
     <ServiceTimesContainer>
       <ServiceTimesHeader>
-        <ClockIcon data-icon="clock" aria-hidden="true">
-          🕐
-        </ClockIcon>
+        <Calendar size={20} color="#101828" aria-hidden="true" />
         <ServiceTimesHeading>Service Times</ServiceTimesHeading>
       </ServiceTimesHeader>
       {sortedServices.length > 0 ? (
@@ -38,7 +40,11 @@ export const ServiceTimes: React.FC<ServiceTimesProps> = ({ services }) => {
             const dayWithPeriod = period ? `${service.day} ${period}` : service.day;
             return (
               <ServiceItem key={service.id} role="listitem">
-                {dayWithPeriod} - {service.serviceName} - {service.time}
+                <ServiceInfo>
+                  <ServiceDay>{dayWithPeriod}</ServiceDay>
+                  <ServiceName>{service.serviceName}</ServiceName>
+                </ServiceInfo>
+                <ServiceTimeText>{service.time}</ServiceTimeText>
               </ServiceItem>
             );
           })}

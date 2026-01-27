@@ -1,9 +1,9 @@
 import type { HeroContent } from '@/types';
 
 export const heroContent: HeroContent = {
-  imageUrl: '/hero-image.jpg',
-  imageAlt: 'Church leadership welcoming visitors',
-  heading: 'Welcome! 👋',
-  subtitle: 'Choose an option below to get started',
+  imageUrl: '/neh_temple_tap_hub_hero_image.jpg',
+  imageAlt: "Nehemiah's Temple leadership",
+  heading: "Nehemiah's Temple of the Apostolic Faith",
+  subtitle: 'Come As You Are and Change As You Come',
   showOverlay: true,
 };

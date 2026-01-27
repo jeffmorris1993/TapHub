@@ -1,21 +1,32 @@
 import styled from '@emotion/styled';
 
-export const ContactContainer = styled.footer`
-  padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.lg};
-  background: ${({ theme }) => theme.colors.background};
+export const ContactContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.xs};
   text-align: center;
 `;
 
 export const ContactContent = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.xs};
 `;
 
 export const AddressText = styled.p`
-  font-size: ${({ theme }) => theme.typography.fontSize.base};
-  color: ${({ theme }) => theme.colors.textPrimary};
-  margin: 0 0 ${({ theme }) => theme.spacing.sm} 0;
-  line-height: ${({ theme }) => theme.typography.lineHeight.normal};
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  color: ${({ theme }) => theme.colors.textTertiary};
+  margin: 0;
+  line-height: ${({ theme }) => theme.typography.lineHeight.tight};
+`;
+
+export const PhoneText = styled.p`
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  color: ${({ theme }) => theme.colors.textTertiary};
+  margin: 0;
+  line-height: ${({ theme }) => theme.typography.lineHeight.tight};
 `;
 
 export const ContactLink = styled.a`

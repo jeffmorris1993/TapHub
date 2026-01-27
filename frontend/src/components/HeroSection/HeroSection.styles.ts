@@ -3,15 +3,22 @@ import styled from '@emotion/styled';
 export const HeroContainer = styled.section`
   position: relative;
   width: 100%;
-  min-height: 400px;
+  height: 320px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-start;
   overflow: hidden;
   background: ${({ theme }) => theme.colors.background};
+  border-radius: ${({ theme }) => theme.radii['2xl']};
+  box-shadow: ${({ theme }) => theme.shadows.hero};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    min-height: 500px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    height: 280px;
+    border-radius: ${({ theme }) => theme.radii.xl};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    height: 240px;
   }
 `;
 
@@ -32,9 +39,10 @@ export const HeroOverlay = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.6)
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0) 100%
   );
   z-index: 2;
 `;
@@ -42,33 +50,49 @@ export const HeroOverlay = styled.div`
 export const HeroContent = styled.div`
   position: relative;
   z-index: 3;
-  text-align: center;
+  text-align: left;
   padding: ${({ theme }) => theme.spacing.xl};
-  max-width: 800px;
   color: ${({ theme }) => theme.colors.textOnPrimary};
+  max-width: 600px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: ${({ theme }) => theme.spacing.lg};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: ${({ theme }) => theme.spacing.md};
+  }
 `;
 
-export const HeroHeading = styled.h2`
+export const HeroHeading = styled.h1`
   font-family: ${({ theme }) => theme.typography.fontFamily.heading};
-  font-size: ${({ theme }) => theme.typography.fontSize['3xl']};
+  font-size: ${({ theme }) => theme.typography.fontSize['4xl']};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  margin: 0 0 ${({ theme }) => theme.spacing.md} 0;
+  margin: 0 0 ${({ theme }) => theme.spacing.sm} 0;
   color: ${({ theme }) => theme.colors.textOnPrimary};
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: ${({ theme }) => theme.typography.lineHeight.tight};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    font-size: ${({ theme }) => theme.typography.fontSize['4xl']};
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: ${({ theme }) => theme.typography.fontSize['3xl']};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: ${({ theme }) => theme.typography.fontSize['2xl']};
   }
 `;
 
 export const HeroSubtitle = styled.p`
   font-size: ${({ theme }) => theme.typography.fontSize.lg};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.normal};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
   margin: 0;
-  color: ${({ theme }) => theme.colors.textOnPrimary};
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.95);
+  line-height: ${({ theme }) => theme.typography.lineHeight.normal};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    font-size: ${({ theme }) => theme.typography.fontSize.xl};
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: ${({ theme }) => theme.typography.fontSize.base};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: ${({ theme }) => theme.typography.fontSize.sm};
   }
 `;
