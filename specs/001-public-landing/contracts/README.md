@@ -1,14 +1,21 @@
 # API Contracts: Public Landing Page
 
 **Feature**: 001-public-landing
-**Date**: 2026-01-25
-**Status**: Mock Contracts (Frontend-Only MVP)
+**Date**: 2026-01-26
+**Status**: Optional (Not Used in MVP)
 
 ## Overview
 
-This directory contains JSON Schema contracts for API endpoints used by the public landing page. Since this is a **frontend-only MVP**, these contracts define the shape of **mocked data** that will be hardcoded in the frontend application.
+This directory contains **optional** JSON Schema contracts for potential future API endpoints.
 
-When the backend API is implemented, these schemas will serve as the contract between frontend and backend teams.
+**For the MVP, these contracts are NOT used** because landing page data is stored as static files in `frontend/src/data/` instead of being fetched from APIs. This is the pragmatic choice for a single-church deployment where service times, contact info, and navigation items rarely change.
+
+**When would you use these contracts?**
+- If you expand to multi-church deployment (each church has different service times)
+- If church leadership wants to edit content without developer intervention
+- If content changes frequently enough to justify an admin interface
+
+For now, these contracts serve as documentation of what the data structure would look like if/when you decide to add API endpoints.
 
 ---
 

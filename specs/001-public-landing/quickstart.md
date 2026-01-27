@@ -97,7 +97,7 @@ VITE_ENABLE_OFFLINE_MODE=true
 NODE_ENV=development
 ```
 
-**Note**: For MVP (frontend-only), API calls are mocked, so `VITE_API_BASE_URL` is not actively used.
+**Note**: For MVP (frontend-only), landing page data is static (stored in `src/data/`), so `VITE_API_BASE_URL` is not used for the public landing page. This variable will be needed for future features that require backend APIs (events, announcements, RSVP, etc.).
 
 ---
 
@@ -359,22 +359,38 @@ export type { MyComponentProps } from './MyComponent';
 
 4. **Repeat**: Add next test for new behavior
 
-### Update Mock Data
+### Update Static Content
 
-Edit mock data files in `src/mocks/`:
+Edit static data files in `src/data/`:
 
 ```bash
 # Edit navigation items
-code src/mocks/navigationItems.ts
+code src/data/navigationItems.ts
 
 # Edit service times
-code src/mocks/serviceTimes.ts
+code src/data/serviceTimes.ts
 
 # Edit contact info
-code src/mocks/contactInfo.ts
+code src/data/contactInfo.ts
+
+# Edit hero section content
+code src/data/heroContent.ts
 ```
 
 Changes will hot-reload automatically if dev server is running.
+
+**When to update:**
+- Service times change (e.g., new service added)
+- Contact information changes (e.g., phone number updated)
+- Church moves locations
+- Navigation cards need reordering or new cards added
+
+**Deployment:**
+After editing, rebuild and redeploy the frontend:
+```bash
+npm run build
+# Deploy dist/ to Cloud Storage
+```
 
 ---
 

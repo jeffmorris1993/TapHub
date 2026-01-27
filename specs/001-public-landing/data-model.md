@@ -6,7 +6,17 @@
 
 ## Overview
 
-This document defines TypeScript interfaces and types for the public landing page. Since this is a frontend-only MVP, all data structures represent **static content** that will be hardcoded or mocked. Future backend integration will use these same shapes for API responses.
+This document defines TypeScript interfaces and types for the public landing page. For this single-church deployment, landing page content (service times, contact info, navigation items) **rarely changes** and will be stored as **static data files** in the frontend codebase.
+
+**Rationale for Static Data:**
+- Service times change infrequently (maybe once a year)
+- Contact info rarely changes (only if moving locations)
+- Navigation items are a fixed set of 6 cards
+- Single church deployment (not multi-tenant)
+- Better performance (no API calls for static content)
+- Simpler architecture (follows "Simplicity and Pragmatism" principle)
+
+If content needs updating, developers edit the static data files and redeploy the frontend. This is pragmatic for a single church with infrequent changes.
 
 ---
 
@@ -394,37 +404,66 @@ interface PublicLandingPageData {
 
 ---
 
-## Mock Data Location
+## Static Data Location
 
-All mock data will be stored in:
-- `frontend/src/mocks/navigationItems.ts`
-- `frontend/src/mocks/serviceTimes.ts`
-- `frontend/src/mocks/contactInfo.ts`
-- `frontend/src/mocks/heroContent.ts`
-- `frontend/src/mocks/index.ts` (barrel export)
+All static data will be stored in:
+- `frontend/src/data/navigationItems.ts`
+- `frontend/src/data/serviceTimes.ts`
+- `frontend/src/data/contactInfo.ts`
+- `frontend/src/data/heroContent.ts`
+- `frontend/src/data/index.ts` (barrel export)
+
+**Why `data/` not `mocks/`?**
+This is real, production data for the church, not test mocks. The data is static because it changes infrequently, not because it's fake.
 
 ---
 
-## Future API Integration
+## Service Layer Pattern
 
-When backend API is available, these types will align with API response schemas:
+To keep data access flexible and testable, use a service layer that abstracts where data comes from:
 
 ```typescript
-// Future API endpoints (mocked for now)
-GET /api/v1/public/landing-page
-Response: PublicLandingPageData
+// frontend/src/services/landingPageService.ts
+import { navigationItems } from '@/data/navigationItems';
+import { serviceTimes } from '@/data/serviceTimes';
+import { contactInfo } from '@/data/contactInfo';
+import { heroContent } from '@/data/heroContent';
+import type { PublicLandingPageData } from '@/types';
 
-GET /api/v1/public/navigation
-Response: NavigationItem[]
-
-GET /api/v1/public/service-times
-Response: ServiceTime[]
-
-GET /api/v1/public/contact
-Response: ContactInfo
+export const landingPageService = {
+  /**
+   * Get all landing page data
+   * Currently returns static data from local files
+   * Can be swapped to API call later without changing components
+   */
+  async getLandingPageData(): Promise<PublicLandingPageData> {
+    return {
+      contactInfo,
+      hero: heroContent,
+      navigationItems,
+      serviceTimes,
+    };
+  },
+};
 ```
 
-See `contracts/` directory for mock API response schemas.
+**Benefits:**
+- Components use the service, not direct imports
+- Easy to swap to API later by changing just this file
+- Testable (can mock the service in tests)
+- Consistent async interface (even though static data is synchronous)
+
+**Future API Migration (if needed):**
+```typescript
+// If you ever need to fetch from API instead of static data:
+export const landingPageService = {
+  async getLandingPageData(): Promise<PublicLandingPageData> {
+    const response = await axios.get('/api/v1/public/landing-page');
+    return response.data;
+  },
+};
+// Components don't need to change - they already use async/await
+```
 
 ---
 

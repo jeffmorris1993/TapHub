@@ -5,7 +5,7 @@
 
 ## Summary
 
-Build a mobile-first, responsive public landing page that serves as the primary entry point for church visitors arriving via NFC/QR code scan. The page displays church branding, six navigation cards for key actions, service times, and contact information. This frontend-only implementation uses mocked API data and Emotion styled components with a light theme foundation ready for dark mode extension.
+Build a mobile-first, responsive public landing page that serves as the primary entry point for church visitors arriving via NFC/QR code scan. The page displays church branding, six navigation cards for key actions, service times, and contact information. This frontend-only implementation uses static data files (no API calls needed) and Emotion styled components with a light theme foundation ready for dark mode extension.
 
 ## Technical Context
 
@@ -122,9 +122,14 @@ frontend/
 │   │   ├── useAnalytics.ts       # Aggregate analytics hook
 │   │   ├── useOffline.ts         # Offline detection
 │   │   └── index.ts
-│   ├── mocks/
-│   │   ├── navigationItems.ts    # Mock navigation card data
-│   │   ├── serviceTimes.ts       # Mock service times data
+│   ├── data/
+│   │   ├── navigationItems.ts    # Static navigation card data
+│   │   ├── serviceTimes.ts       # Static service times data
+│   │   ├── contactInfo.ts        # Static contact information
+│   │   ├── heroContent.ts        # Static hero section content
+│   │   └── index.ts
+│   ├── services/
+│   │   ├── landingPageService.ts # Service layer for data access
 │   │   └── index.ts
 │   ├── utils/
 │   │   ├── __tests__/
