@@ -75,9 +75,9 @@ Visitors who prefer traditional navigation can use the header menu to quickly ju
 - **FR-007**: Page MUST display church contact information: address "27303 Palmer St, Madison Heights, MI 48071" and phone "(555) 123-4567"
 - **FR-008**: Header MUST display church logo, church name, "Tap Hub" subtitle, and "Admin" button
 - **FR-009**: Header navigation (desktop/tablet only) MUST display links for "Home", "Today", "Events", "Kids", "Give"
-- **FR-010**: Page MUST load within 2 seconds on 3G mobile connections
+- **FR-010**: Page MUST load within 2 seconds on 3G mobile connections (measured by Time to Interactive metric in Lighthouse)
 - **FR-011**: All interactive elements (cards, buttons, links) MUST provide visual feedback on tap/click
-- **FR-012**: Page MUST be fully responsive and mobile-first, optimized for tap targets
+- **FR-012**: Page MUST be fully responsive and mobile-first (320px minimum width to 1920px maximum), with all interactive elements meeting minimum 44x44px tap target size per WCAG 2.1 AA
 - **FR-013**: Page MUST be accessible via both NFC tag scan and QR code scan
 - **FR-014**: Navigation cards MUST route to corresponding pages: "I'm New Here" → new visitor form, "Today at Nehemiah" → today's schedule, "Events & Signups" → events listing, "Kids + Youth Hub" → kids ministry info, "Give" → giving page, "Feedback / Prayer" → feedback/prayer form
 - **FR-015**: Page MUST be served over HTTPS only, with HTTP requests automatically redirected to HTTPS, and MUST include Content Security Policy headers to prevent XSS attacks

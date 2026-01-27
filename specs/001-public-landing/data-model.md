@@ -486,9 +486,9 @@ export const landingPageService = {
 - `churchName`: Required, 1-200 characters
 - `address.street`: Required
 - `address.cityStateZip`: Required
-- `phone`: Required, valid phone format
+- `phone`: Required, US phone format `(XXX) XXX-XXXX` (e.g., "(555) 123-4567")
 - `email`: Optional, valid email format
-- `website`: Optional, valid URL format
+- `website`: Optional, valid URL format starting with https://
 
 ---
 

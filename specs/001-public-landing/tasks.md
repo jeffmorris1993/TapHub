@@ -55,7 +55,7 @@
 - [ ] T020 [P] Create services barrel export in frontend/src/services/index.ts
 - [ ] T021 [P] Create App.tsx with React Router setup and ThemeProvider wrapper
 - [ ] T022 [P] Create main.tsx as application entry point
-- [ ] T023 Add hero-image.jpg to frontend/public/ directory
+- [ ] T023 Add hero-image.jpg to frontend/public/ directory (recommended: 1920x1080px, < 500KB, optimized for web)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -69,30 +69,30 @@
 
 ### Tests for User Story 1 (TDD - Write FIRST, ensure they FAIL)
 
-- [ ] T024 [P] [US1] Write test for NavigationCard component in frontend/src/components/NavigationCard/__tests__/NavigationCard.test.tsx (renders title, subtitle, icon, onClick handler)
-- [ ] T025 [P] [US1] Write test for HeroSection component in frontend/src/components/HeroSection/__tests__/HeroSection.test.tsx (renders heading, subtitle, image with fallback)
-- [ ] T026 [P] [US1] Write test for ServiceTimes component in frontend/src/components/ServiceTimes/__tests__/ServiceTimes.test.tsx (renders all service times)
-- [ ] T027 [P] [US1] Write test for ContactInfo component in frontend/src/components/ContactInfo/__tests__/ContactInfo.test.tsx (renders address and phone)
-- [ ] T028 [P] [US1] Write test for PublicLanding page in frontend/src/pages/PublicLanding/__tests__/PublicLanding.test.tsx (renders all sections, loads data from service)
+- [x] T024 [P] [US1] Write test for NavigationCard component in frontend/src/components/NavigationCard/__tests__/NavigationCard.test.tsx (renders title, subtitle, icon, onClick handler)
+- [x] T025 [P] [US1] Write test for HeroSection component in frontend/src/components/HeroSection/__tests__/HeroSection.test.tsx (renders heading, subtitle, image with fallback)
+- [x] T026 [P] [US1] Write test for ServiceTimes component in frontend/src/components/ServiceTimes/__tests__/ServiceTimes.test.tsx (renders all service times)
+- [x] T027 [P] [US1] Write test for ContactInfo component in frontend/src/components/ContactInfo/__tests__/ContactInfo.test.tsx (renders address and phone)
+- [x] T028 [P] [US1] Write test for PublicLanding page in frontend/src/pages/PublicLanding/__tests__/PublicLanding.test.tsx (renders all sections, loads data from service)
 
 ### Implementation for User Story 1
 
-- [ ] T029 [P] [US1] Create NavigationCard.styles.ts in frontend/src/components/NavigationCard/ with Emotion styled components
-- [ ] T030 [US1] Implement NavigationCard component in frontend/src/components/NavigationCard/NavigationCard.tsx (uses styles, accepts props, handles click)
-- [ ] T031 [US1] Create NavigationCard barrel export in frontend/src/components/NavigationCard/index.ts
-- [ ] T032 [P] [US1] Create HeroSection.styles.ts in frontend/src/components/HeroSection/ with responsive styles and overlay
-- [ ] T033 [US1] Implement HeroSection component in frontend/src/components/HeroSection/HeroSection.tsx with image fallback handling
-- [ ] T034 [US1] Create HeroSection barrel export in frontend/src/components/HeroSection/index.ts
-- [ ] T035 [P] [US1] Create ServiceTimes.styles.ts in frontend/src/components/ServiceTimes/ with list styling
-- [ ] T036 [US1] Implement ServiceTimes component in frontend/src/components/ServiceTimes/ServiceTimes.tsx (renders service list with clock icon)
-- [ ] T037 [US1] Create ServiceTimes barrel export in frontend/src/components/ServiceTimes/index.ts
-- [ ] T038 [P] [US1] Create ContactInfo.styles.ts in frontend/src/components/ContactInfo/ with contact layout styles
-- [ ] T039 [US1] Implement ContactInfo component in frontend/src/components/ContactInfo/ContactInfo.tsx (renders address and phone)
-- [ ] T040 [US1] Create ContactInfo barrel export in frontend/src/components/ContactInfo/index.ts
-- [ ] T041 [US1] Create PublicLanding.tsx page in frontend/src/pages/PublicLanding/ that composes all components and fetches data from landingPageService
-- [ ] T042 [US1] Create PublicLanding page barrel export in frontend/src/pages/PublicLanding/index.ts
-- [ ] T043 [US1] Add route for PublicLanding page to App.tsx (root path "/")
-- [ ] T044 [US1] Verify all tests pass and page renders correctly on mobile (320px) and desktop (1920px)
+- [x] T029 [P] [US1] Create NavigationCard.styles.ts in frontend/src/components/NavigationCard/ with Emotion styled components
+- [x] T030 [US1] Implement NavigationCard component in frontend/src/components/NavigationCard/NavigationCard.tsx (uses styles, accepts props, handles click)
+- [x] T031 [US1] Create NavigationCard barrel export in frontend/src/components/NavigationCard/index.ts
+- [x] T032 [P] [US1] Create HeroSection.styles.ts in frontend/src/components/HeroSection/ with responsive styles and overlay
+- [x] T033 [US1] Implement HeroSection component in frontend/src/components/HeroSection/HeroSection.tsx with image fallback handling
+- [x] T034 [US1] Create HeroSection barrel export in frontend/src/components/HeroSection/index.ts
+- [x] T035 [P] [US1] Create ServiceTimes.styles.ts in frontend/src/components/ServiceTimes/ with list styling
+- [x] T036 [US1] Implement ServiceTimes component in frontend/src/components/ServiceTimes/ServiceTimes.tsx (renders service list with clock icon)
+- [x] T037 [US1] Create ServiceTimes barrel export in frontend/src/components/ServiceTimes/index.ts
+- [x] T038 [P] [US1] Create ContactInfo.styles.ts in frontend/src/components/ContactInfo/ with contact layout styles
+- [x] T039 [US1] Implement ContactInfo component in frontend/src/components/ContactInfo/ContactInfo.tsx (renders address and phone)
+- [x] T040 [US1] Create ContactInfo barrel export in frontend/src/components/ContactInfo/index.ts
+- [x] T041 [US1] Create PublicLanding.tsx page in frontend/src/pages/PublicLanding/ that composes all components and fetches data from landingPageService
+- [x] T042 [US1] Create PublicLanding page barrel export in frontend/src/pages/PublicLanding/index.ts
+- [x] T043 [US1] Add route for PublicLanding page to App.tsx (root path "/")
+- [x] T044 [US1] Verify all tests pass and page renders correctly on mobile (320px) and desktop (1920px)
 
 **Checkpoint**: At this point, User Story 1 should be fully functional - landing page displays with all content, navigation cards are clickable, page is responsive
 
@@ -106,15 +106,15 @@
 
 ### Tests for User Story 2 (TDD - Write FIRST, ensure they FAIL)
 
-- [ ] T045 [P] [US2] Write test for Header component in frontend/src/components/Header/__tests__/Header.test.tsx (renders logo, church name, nav links on desktop, Admin button)
+- [x] T045 [P] [US2] Write test for Header component in frontend/src/components/Header/__tests__/Header.test.tsx (renders logo, church name, nav links on desktop, Admin button)
 
 ### Implementation for User Story 2
 
-- [ ] T046 [P] [US2] Create Header.styles.ts in frontend/src/components/Header/ with responsive header styles (mobile vs desktop nav)
-- [ ] T047 [US2] Implement Header component in frontend/src/components/Header/Header.tsx with logo, church name, desktop nav links, Admin button
-- [ ] T048 [US2] Create Header barrel export in frontend/src/components/Header/index.ts
-- [ ] T049 [US2] Add Header component to PublicLanding page in frontend/src/pages/PublicLanding/PublicLanding.tsx
-- [ ] T050 [US2] Verify header test passes and header renders correctly on mobile (no nav links) and desktop (with nav links)
+- [x] T046 [P] [US2] Create Header.styles.ts in frontend/src/components/Header/ with responsive header styles (mobile vs desktop nav)
+- [x] T047 [US2] Implement Header component in frontend/src/components/Header/Header.tsx with logo, church name, desktop nav links, Admin button
+- [x] T048 [US2] Create Header barrel export in frontend/src/components/Header/index.ts
+- [x] T049 [US2] Add Header component to PublicLanding page in frontend/src/pages/PublicLanding/PublicLanding.tsx
+- [x] T050 [US2] Verify header test passes and header renders correctly on mobile (no nav links) and desktop (with nav links)
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently - landing page has header with navigation options
 
@@ -124,21 +124,21 @@
 
 **Purpose**: Ensure WCAG 2.1 AA compliance, performance optimization, and analytics
 
-- [ ] T051 [P] Write test for accessibility utilities in frontend/src/utils/__tests__/accessibility.test.ts (contrast ratio, touch target validation)
-- [ ] T052 [P] Implement accessibility utilities in frontend/src/utils/accessibility.ts (getContrastRatio, validateTouchTarget, getAriaLabel functions)
-- [ ] T053 [P] Create utils barrel export in frontend/src/utils/index.ts
-- [ ] T054 [P] Write test for useOffline hook in frontend/src/hooks/__tests__/useOffline.test.ts
-- [ ] T055 [P] Implement useOffline hook in frontend/src/hooks/useOffline.ts (detects online/offline status)
-- [ ] T056 [P] Write test for useAnalytics hook in frontend/src/hooks/__tests__/useAnalytics.test.ts
-- [ ] T057 [P] Implement useAnalytics hook in frontend/src/hooks/useAnalytics.ts (trackEvent with navigator.sendBeacon)
-- [ ] T058 [P] Create hooks barrel export in frontend/src/hooks/index.ts
-- [ ] T059 Add ARIA labels to all interactive elements in NavigationCard, Header components
-- [ ] T060 Add keyboard navigation support (Tab, Enter) to NavigationCard component
-- [ ] T061 Verify all tap targets are minimum 44x44px in NavigationCard and Header components
-- [ ] T062 Add React Error Boundary component in frontend/src/components/ErrorBoundary/ErrorBoundary.tsx
-- [ ] T063 Wrap App.tsx with ErrorBoundary component
-- [ ] T064 Configure Vite PWA plugin in vite.config.ts for offline caching (Service Worker with Workbox)
-- [ ] T065 Add useAnalytics hook to PublicLanding page to track page views and navigation card clicks
+- [x] T051 [P] Write test for accessibility utilities in frontend/src/utils/__tests__/accessibility.test.ts (contrast ratio, touch target validation)
+- [x] T052 [P] Implement accessibility utilities in frontend/src/utils/accessibility.ts (getContrastRatio, validateTouchTarget, getAriaLabel functions)
+- [x] T053 [P] Create utils barrel export in frontend/src/utils/index.ts
+- [x] T054 [P] Write test for useOffline hook in frontend/src/hooks/__tests__/useOffline.test.ts
+- [x] T055 [P] Implement useOffline hook in frontend/src/hooks/useOffline.ts (detects online/offline status)
+- [x] T056 [P] Write test for useAnalytics hook in frontend/src/hooks/__tests__/useAnalytics.test.ts
+- [x] T057 [P] Implement useAnalytics hook in frontend/src/hooks/useAnalytics.ts (trackEvent with navigator.sendBeacon)
+- [x] T058 [P] Create hooks barrel export in frontend/src/hooks/index.ts
+- [x] T059 Add ARIA labels to all interactive elements in NavigationCard, Header components
+- [x] T060 Add keyboard navigation support (Tab, Enter) to NavigationCard component
+- [x] T061 Verify all tap targets are minimum 44x44px in NavigationCard and Header components
+- [x] T062 Add React Error Boundary component in frontend/src/components/ErrorBoundary/ErrorBoundary.tsx
+- [x] T063 Wrap App.tsx with ErrorBoundary component
+- [x] T064 Configure Vite PWA plugin in vite.config.ts for offline caching (Service Worker with Workbox)
+- [x] T065 Add useAnalytics hook to PublicLanding page to track page views and navigation card clicks
 - [ ] T066 Run Lighthouse audit and verify performance score 90+, accessibility score 100
 
 ---
@@ -149,12 +149,12 @@
 
 - [ ] T067 [P] Write theme unit tests in frontend/src/theme/__tests__/theme.test.ts (validates theme structure)
 - [ ] T068 [P] Add loading skeleton/placeholder for hero image in HeroSection component
-- [ ] T069 [P] Add visual feedback (hover, active states) to all interactive elements
+- [x] T069 [P] Add visual feedback (hover, active states) to all interactive elements
 - [ ] T070 [P] Optimize images: compress hero-image.jpg, add WebP version with fallback
 - [ ] T071 Run full test suite (npm run test) and ensure all tests pass
-- [ ] T072 Run type checking (npm run type-check) and fix any TypeScript errors
+- [x] T072 Run type checking (npm run type-check) and fix any TypeScript errors
 - [ ] T073 Run linting (npm run lint) and fix any ESLint errors
-- [ ] T074 Build for production (npm run build) and verify bundle size < 150KB gzipped
+- [x] T074 Build for production (npm run build) and verify bundle size < 150KB gzipped
 - [ ] T075 Test on real devices: iOS Safari, Android Chrome, verify responsive design 320px-1920px
 - [ ] T076 Run WCAG accessibility validator and fix any violations
 - [ ] T077 Verify all quickstart.md scenarios work (development setup, running tests, building)

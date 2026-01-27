@@ -1,0 +1,58 @@
+import type { NavigationItem } from '@/types';
+
+export const navigationItems: NavigationItem[] = [
+  {
+    id: 'new-here',
+    icon: 'user',
+    title: "I'm New Here",
+    subtitle: 'Connect with us',
+    route: '/new-visitor',
+    order: 1,
+    enabled: true,
+  },
+  {
+    id: 'today',
+    icon: 'calendar',
+    title: 'Today at Nehemiah',
+    subtitle: "See what's happening",
+    route: '/today',
+    order: 2,
+    enabled: true,
+  },
+  {
+    id: 'events',
+    icon: 'calendar-check',
+    title: 'Events & Signups',
+    subtitle: 'View upcoming events',
+    route: '/events',
+    order: 3,
+    enabled: true,
+  },
+  {
+    id: 'kids-youth',
+    icon: 'users',
+    title: 'Kids + Youth Hub',
+    subtitle: 'Programs for families',
+    route: '/kids-youth',
+    order: 4,
+    enabled: true,
+  },
+  {
+    id: 'give',
+    icon: 'gift',
+    title: 'Give',
+    subtitle: 'Support our mission',
+    route: '/give',
+    order: 5,
+    enabled: true,
+  },
+  {
+    id: 'feedback',
+    icon: 'message-circle',
+    title: 'Feedback / Prayer',
+    subtitle: 'Share with us',
+    route: '/feedback',
+    order: 6,
+    enabled: true,
+  },
+];

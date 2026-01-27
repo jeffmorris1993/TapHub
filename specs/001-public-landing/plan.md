@@ -18,6 +18,10 @@ Build a mobile-first, responsive public landing page that serves as the primary 
 **Performance Goals**: Initial load < 2 seconds on 3G, Lighthouse score 90+
 **Constraints**: HTTPS only, WCAG 2.1 Level AA compliance, offline caching for static content
 **Scale/Scope**: Single public landing page with 6 navigation cards, responsive 320px-1920px
+**Deployment Requirements** (handled by Cloud Run configuration, not in tasks.md):
+- NFC/QR code accessibility (FR-013): URL routing handled by deployment domain configuration
+- HTTPS enforcement (FR-015): Automatic HTTPS redirect configured in Cloud Load Balancer
+- CSP headers (FR-015): Content Security Policy configured in Cloud Run service settings
 
 ## Constitution Check
 
