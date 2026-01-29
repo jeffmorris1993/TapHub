@@ -19,8 +19,9 @@ export const HeaderContent = styled.div`
   gap: ${({ theme }) => theme.spacing.lg};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: ${({ theme }) => theme.spacing.md};
+    padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
     grid-template-columns: 1fr auto;
+    gap: ${({ theme }) => theme.spacing.md};
   }
 `;
 
@@ -55,10 +56,6 @@ export const ChurchInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    display: none;
-  }
 `;
 
 export const ChurchName = styled.span`
@@ -99,6 +96,10 @@ export const AdminButton = styled(Link)`
   &:focus-visible {
     outline: 2px solid ${({ theme }) => theme.colors.primary};
     outline-offset: 2px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: none;
   }
 `;
 
@@ -143,90 +144,25 @@ export const NavLink = styled(Link)`
   }
 `;
 
-export const MobileMenuButton = styled.button`
+export const MobileActions = styled.div`
   display: none;
-  background: transparent;
-  border: none;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  cursor: pointer;
-  padding: ${({ theme }) => theme.spacing.sm};
-  border-radius: ${({ theme }) => theme.radii.sm};
-  transition: all ${({ theme }) => theme.transitions.fast};
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.background};
-  }
-
-  &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.colors.primary};
-    outline-offset: 2px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-self: end;
-  }
-`;
-
-export const MobileMenuOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: none;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    display: block;
-  }
-`;
-
-export const MobileMenu = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 280px;
-  max-width: 85vw;
-  background: ${({ theme }) => theme.colors.surface};
-  box-shadow: ${({ theme }) => theme.shadows.xl};
-  z-index: 1000;
-  display: none;
-  flex-direction: column;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    display: flex;
-  }
-`;
-
-export const MobileMenuHeader = styled.div`
-  display: flex;
+  gap: ${({ theme }) => theme.spacing.xs};
   align-items: center;
-  justify-content: space-between;
-  padding: ${({ theme }) => theme.spacing.lg};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-
-  span {
-    font-size: ${({ theme }) => theme.typography.fontSize.lg};
-    font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
-    color: ${({ theme }) => theme.colors.textPrimary};
-  }
+  justify-self: end;
 
   button {
     background: transparent;
     border: none;
     color: ${({ theme }) => theme.colors.textSecondary};
     cursor: pointer;
-    padding: ${({ theme }) => theme.spacing.sm};
+    padding: ${({ theme }) => theme.spacing.xs};
     border-radius: ${({ theme }) => theme.radii.sm};
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all ${({ theme }) => theme.transitions.fast};
+    min-width: 36px;
+    min-height: 36px;
 
     &:hover {
       background: ${({ theme }) => theme.colors.background};
@@ -237,34 +173,8 @@ export const MobileMenuHeader = styled.div`
       outline-offset: 2px;
     }
   }
-`;
 
-export const MobileNavLinks = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: ${({ theme }) => theme.spacing.lg};
-  gap: ${({ theme }) => theme.spacing.sm};
-`;
-
-export const MobileNavLink = styled(Link)`
-  color: ${({ theme }) => theme.colors.textPrimary};
-  text-decoration: none;
-  font-size: ${({ theme }) => theme.typography.fontSize.lg};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
-  padding: ${({ theme }) => theme.spacing.md};
-  border-radius: ${({ theme }) => theme.radii.md};
-  transition: all ${({ theme }) => theme.transitions.fast};
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.primary};
-  }
-
-  &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.colors.primary};
-    outline-offset: 2px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: flex;
   }
 `;

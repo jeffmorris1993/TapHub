@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 export const PageContainer = styled.div`
   min-height: 100vh;
   background: ${({ theme }) => theme.colors.backgroundGradient};
+  padding-bottom: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding-bottom: 80px; /* Space for bottom navigation */
+  }
 `;
 
 export const ContentContainer = styled.div`

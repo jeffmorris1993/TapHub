@@ -8,6 +8,7 @@ import { HeroSection } from '@/components/HeroSection';
 import { NavigationCard } from '@/components/NavigationCard';
 import { ServiceTimes } from '@/components/ServiceTimes';
 import { ContactInfo } from '@/components/ContactInfo';
+import { BottomNavigation } from '@/components/BottomNavigation';
 import {
   PageContainer,
   ContentContainer,
@@ -111,6 +112,7 @@ export const PublicLanding: React.FC = () => {
       <Footer>
         <FooterLink to="/help">Need help?</FooterLink>
       </Footer>
+      <BottomNavigation />
     </PageContainer>
   );
 };

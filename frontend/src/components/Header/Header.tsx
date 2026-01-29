@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Settings, Menu, X } from 'lucide-react';
+import { Settings, Shield, Moon } from 'lucide-react';
 import {
   HeaderContainer,
   HeaderContent,
@@ -12,25 +11,10 @@ import {
   Nav,
   NavLinks,
   NavLink,
-  MobileMenuButton,
-  MobileMenuOverlay,
-  MobileMenu,
-  MobileMenuHeader,
-  MobileNavLinks,
-  MobileNavLink,
+  MobileActions,
 } from './Header.styles';
 
 export const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
-  };
-
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -57,30 +41,14 @@ export const Header = () => {
           </NavLinks>
         </Nav>
 
-        <MobileMenuButton onClick={toggleMobileMenu} aria-label="Toggle menu">
-          <Menu size={24} />
-        </MobileMenuButton>
-
-        {mobileMenuOpen && (
-          <>
-            <MobileMenuOverlay onClick={closeMobileMenu} />
-            <MobileMenu>
-              <MobileMenuHeader>
-                <span>Menu</span>
-                <button onClick={closeMobileMenu} aria-label="Close menu">
-                  <X size={24} />
-                </button>
-              </MobileMenuHeader>
-              <MobileNavLinks>
-                <MobileNavLink to="/" onClick={closeMobileMenu}>Home</MobileNavLink>
-                <MobileNavLink to="/today" onClick={closeMobileMenu}>Today</MobileNavLink>
-                <MobileNavLink to="/events" onClick={closeMobileMenu}>Events</MobileNavLink>
-                <MobileNavLink to="/kids-youth" onClick={closeMobileMenu}>Kids</MobileNavLink>
-                <MobileNavLink to="/give" onClick={closeMobileMenu}>Give</MobileNavLink>
-              </MobileNavLinks>
-            </MobileMenu>
-          </>
-        )}
+        <MobileActions>
+          <button aria-label="Security settings">
+            <Shield size={20} />
+          </button>
+          <button aria-label="Toggle dark mode">
+            <Moon size={20} />
+          </button>
+        </MobileActions>
       </HeaderContent>
     </HeaderContainer>
   );
