@@ -90,10 +90,17 @@ describe('PublicLanding', () => {
   it('renders hero section with correct content', async () => {
     renderWithProviders(<PublicLanding />);
 
+    // Wait for page content to load by checking for navigation card content
     await waitFor(() => {
-      expect(screen.getByText('Welcome! 👋')).toBeInTheDocument();
-      expect(screen.getByText('Choose an option below to get started')).toBeInTheDocument();
+      expect(screen.getByText("I'm New Here")).toBeInTheDocument();
     });
+
+    // Welcome text appears in both HeroSection and WelcomeSection
+    const welcomeElements = screen.getAllByText(/Welcome!/);
+    expect(welcomeElements.length).toBeGreaterThanOrEqual(1);
+    // Subtitle text also appears in multiple places
+    const subtitleElements = screen.getAllByText('Choose an option below to get started');
+    expect(subtitleElements.length).toBeGreaterThanOrEqual(1);
   });
 
   it('renders all navigation cards', async () => {
@@ -110,7 +117,10 @@ describe('PublicLanding', () => {
 
     await waitFor(() => {
       expect(screen.getByText('Service Times')).toBeInTheDocument();
-      expect(screen.getByText(/Sunday Morning.*Main Worship Service.*10:00 AM/i)).toBeInTheDocument();
+      // Service times are rendered as separate elements
+      expect(screen.getByText('Sunday Morning')).toBeInTheDocument();
+      expect(screen.getByText('Main Worship Service')).toBeInTheDocument();
+      expect(screen.getByText('10:00 AM')).toBeInTheDocument();
     });
   });
 

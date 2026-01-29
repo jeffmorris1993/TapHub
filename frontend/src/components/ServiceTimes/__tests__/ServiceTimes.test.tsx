@@ -35,18 +35,25 @@ describe('ServiceTimes', () => {
   it('renders all service times', () => {
     renderWithTheme(<ServiceTimes services={mockServiceTimes} />);
 
-    expect(screen.getByText('Sunday Morning - Main Worship Service - 10:00 AM')).toBeInTheDocument();
-    expect(screen.getByText('Sunday Evening - Evening Service - 6:00 PM')).toBeInTheDocument();
-    expect(screen.getByText('Wednesday - Bible Study - 7:00 PM')).toBeInTheDocument();
+    // The component renders day, service name, and time as separate elements
+    expect(screen.getByText('Sunday Morning')).toBeInTheDocument();
+    expect(screen.getByText('Main Worship Service')).toBeInTheDocument();
+    expect(screen.getByText('10:00 AM')).toBeInTheDocument();
+    expect(screen.getByText('Sunday Evening')).toBeInTheDocument();
+    expect(screen.getByText('Evening Service')).toBeInTheDocument();
+    expect(screen.getByText('6:00 PM')).toBeInTheDocument();
+    expect(screen.getByText('Wednesday')).toBeInTheDocument();
+    expect(screen.getByText('Bible Study')).toBeInTheDocument();
+    expect(screen.getByText('7:00 PM')).toBeInTheDocument();
   });
 
-  it('renders Service Times heading with clock icon', () => {
+  it('renders Service Times heading with calendar icon', () => {
     renderWithTheme(<ServiceTimes services={mockServiceTimes} />);
 
     expect(screen.getByText('Service Times')).toBeInTheDocument();
-    // Clock icon should be present (we'll use data-icon attribute)
+    // Calendar icon should be present (lucide-react Calendar)
     const heading = screen.getByText('Service Times').closest('div');
-    expect(heading?.querySelector('[data-icon="clock"]')).toBeInTheDocument();
+    expect(heading?.querySelector('.lucide-calendar')).toBeInTheDocument();
   });
 
   it('renders services in correct order', () => {

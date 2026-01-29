@@ -52,6 +52,24 @@ export const LogoImage = styled.img`
   flex-shrink: 0;
 `;
 
+export const LogoCircle = styled.div`
+  width: 48px;
+  height: 48px;
+  border-radius: ${({ theme }) => theme.radii.full};
+  background: ${({ theme }) => theme.colors.primary};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+`;
+
+export const LogoText = styled.span`
+  font-size: ${({ theme }) => theme.typography.fontSize.lg};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+  color: ${({ theme }) => theme.colors.textOnPrimary};
+  line-height: 1;
+`;
+
 export const ChurchInfo = styled.div`
   display: flex;
   flex-direction: column;

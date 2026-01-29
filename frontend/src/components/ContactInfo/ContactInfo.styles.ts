@@ -29,6 +29,44 @@ export const PhoneText = styled.p`
   line-height: ${({ theme }) => theme.typography.lineHeight.tight};
 `;
 
+export const PhoneLink = styled.a`
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  color: ${({ theme }) => theme.colors.textTertiary};
+  margin: 0;
+  line-height: ${({ theme }) => theme.typography.lineHeight.tight};
+  text-decoration: none;
+  transition: color ${({ theme }) => theme.transitions.fast};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  &:focus {
+    outline: 2px solid ${({ theme }) => theme.colors.interactive};
+    outline-offset: 2px;
+    border-radius: ${({ theme }) => theme.radii.sm};
+  }
+`;
+
+export const EmailLink = styled.a`
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  color: ${({ theme }) => theme.colors.textTertiary};
+  margin: 0;
+  line-height: ${({ theme }) => theme.typography.lineHeight.tight};
+  text-decoration: none;
+  transition: color ${({ theme }) => theme.transitions.fast};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  &:focus {
+    outline: 2px solid ${({ theme }) => theme.colors.interactive};
+    outline-offset: 2px;
+    border-radius: ${({ theme }) => theme.radii.sm};
+  }
+`;
+
 export const ContactLink = styled.a`
   display: inline-block;
   font-size: ${({ theme }) => theme.typography.fontSize.lg};

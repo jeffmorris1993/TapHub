@@ -35,7 +35,7 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
   const IconComponent = iconComponents[icon as keyof typeof iconComponents];
 
   return (
-    <CardContainer onClick={onClick} aria-label={`${title}: ${subtitle}`}>
+    <CardContainer onClick={onClick} aria-label={`${title}: ${subtitle}`} data-icon={icon}>
       <IconWrapper $gradientIndex={gradientIndex}>
         {IconComponent && <IconComponent size={32} color="white" aria-hidden="true" />}
       </IconWrapper>

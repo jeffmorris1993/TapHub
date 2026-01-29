@@ -3,7 +3,8 @@ import {
   ContactContainer,
   ContactContent,
   AddressText,
-  PhoneText,
+  PhoneLink,
+  EmailLink,
 } from './ContactInfo.styles';
 
 export interface ContactInfoProps {
@@ -11,13 +12,19 @@ export interface ContactInfoProps {
 }
 
 export const ContactInfo: React.FC<ContactInfoProps> = ({ contact }) => {
+  // Format phone number for tel: link (remove non-digits)
+  const phoneDigits = contact.phone.replace(/\D/g, '');
+
   return (
     <ContactContainer>
       <ContactContent>
         <AddressText>
           {contact.address.street}, {contact.address.cityStateZip}
         </AddressText>
-        <PhoneText>{contact.phone}</PhoneText>
+        <PhoneLink href={`tel:${phoneDigits}`}>{contact.phone}</PhoneLink>
+        {contact.email && (
+          <EmailLink href={`mailto:${contact.email}`}>{contact.email}</EmailLink>
+        )}
       </ContactContent>
     </ContactContainer>
   );
