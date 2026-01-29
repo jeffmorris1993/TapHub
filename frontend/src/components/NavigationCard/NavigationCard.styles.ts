@@ -32,6 +32,11 @@ export const CardContainer = styled.button`
     outline-offset: 2px;
   }
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    height: 116px;
+    padding: 2px 26px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     height: auto;
     min-height: 88px;

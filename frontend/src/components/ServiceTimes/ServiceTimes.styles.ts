@@ -6,6 +6,10 @@ export const ServiceTimesContainer = styled.section`
   box-shadow: ${({ theme }) => theme.shadows.xl};
   padding: ${({ theme }) => theme.spacing.lg};
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    padding: ${({ theme }) => theme.spacing.xl};
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     padding: ${({ theme }) => theme.spacing.md};
   }
@@ -16,6 +20,10 @@ export const ServiceTimesHeader = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
   margin-bottom: ${({ theme }) => theme.spacing.md};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    margin-bottom: ${({ theme }) => theme.spacing.lg};
+  }
 `;
 
 export const ServiceTimesHeading = styled.h2`
@@ -43,6 +51,10 @@ export const ServiceItem = styled.li`
   padding: ${({ theme }) => theme.spacing.md};
   background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: ${({ theme }) => theme.radii.lg};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    min-height: 77px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     flex-direction: column;

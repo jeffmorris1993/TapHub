@@ -19,6 +19,12 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.xl};
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    max-width: 1005px;
+    padding: ${({ theme }) => theme.spacing['2xl']};
+    gap: ${({ theme }) => theme.spacing['2xl']};
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     padding: ${({ theme }) => theme.spacing.lg} ${({ theme }) => theme.spacing.md};
     gap: ${({ theme }) => theme.spacing.lg};
@@ -39,6 +45,11 @@ export const WelcomeHeading = styled.h2`
   color: ${({ theme }) => theme.colors.textPrimary};
   margin: 0;
   line-height: ${({ theme }) => theme.typography.lineHeight.tight};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    font-size: ${({ theme }) => theme.typography.fontSize['4xl']};
+    line-height: 44px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     font-size: ${({ theme }) => theme.typography.fontSize['2xl']};
@@ -61,6 +72,12 @@ export const NavigationList = styled.section`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.md};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: ${({ theme }) => theme.spacing.lg};
+  }
 `;
 
 export const Footer = styled.footer`

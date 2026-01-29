@@ -12,6 +12,10 @@ export const HeroContainer = styled.section`
   border-radius: ${({ theme }) => theme.radii['2xl']};
   box-shadow: ${({ theme }) => theme.shadows.hero};
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    height: 400px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     height: 280px;
     border-radius: ${({ theme }) => theme.radii.xl};
@@ -55,6 +59,11 @@ export const HeroContent = styled.div`
   color: ${({ theme }) => theme.colors.textOnPrimary};
   max-width: 600px;
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    padding: ${({ theme }) => theme.spacing['2xl']};
+    max-width: 855px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     padding: ${({ theme }) => theme.spacing.lg};
   }
@@ -72,6 +81,12 @@ export const HeroHeading = styled.h1`
   color: ${({ theme }) => theme.colors.textOnPrimary};
   line-height: ${({ theme }) => theme.typography.lineHeight.tight};
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: 0.37px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     font-size: ${({ theme }) => theme.typography.fontSize['3xl']};
   }
@@ -87,6 +102,11 @@ export const HeroSubtitle = styled.p`
   margin: 0;
   color: rgba(255, 255, 255, 0.95);
   line-height: ${({ theme }) => theme.typography.lineHeight.normal};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    font-size: ${({ theme }) => theme.typography.fontSize.xl};
+    line-height: 28px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     font-size: ${({ theme }) => theme.typography.fontSize.base};
