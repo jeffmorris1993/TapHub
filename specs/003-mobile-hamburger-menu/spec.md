@@ -110,6 +110,8 @@ As a mobile user, I no longer want to see a bottom navigation bar because naviga
 - **FR-013**: System MUST remove the existing bottom navigation bar from all mobile views
 - **FR-014**: System MUST animate the menu open/close transitions smoothly
 - **FR-015**: System MUST include the following navigation items: Home, New Here, Today, Events, Kids, Give, Feedback, Settings
+- **FR-016**: System MUST close the menu when the Escape key is pressed (keyboard accessibility)
+- **FR-017**: System MUST display the hamburger menu navigation on screen widths below 768px
 
 ### Key Entities
 
@@ -127,9 +129,16 @@ As a mobile user, I no longer want to see a bottom navigation bar because naviga
 - **SC-004**: All navigation items are visible without scrolling on standard mobile devices (375px+ width)
 - **SC-005**: Users can successfully navigate to all 8 main sections (Home, New Here, Today, Events, Kids, Give, Feedback, Settings) via the hamburger menu
 
+## Clarifications
+
+### Session 2026-01-29
+
+- Q: Should the menu support keyboard dismissal with the Escape key? → A: Yes, Escape key closes menu
+- Q: At what screen width should the hamburger menu be displayed? → A: Below 768px (tablets and phones)
+
 ## Assumptions
 
 - The hamburger icon already exists in the mobile header (visible in Figma designs)
-- The app uses a mobile-responsive design with defined breakpoints for mobile views
+- The hamburger menu navigation applies to screen widths below 768px (tablets and phones); desktop navigation is used at 768px and above
 - Navigation routes/paths for all sections already exist in the application
 - The dark mode toggle button in the header remains separate from the hamburger menu
