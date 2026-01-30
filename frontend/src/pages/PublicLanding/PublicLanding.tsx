@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { type FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { landingPageService } from '@/services';
 import { useAnalytics } from '@/hooks';
@@ -20,7 +20,7 @@ import {
   LoadingContainer,
 } from './PublicLanding.styles';
 
-export const PublicLanding: React.FC = () => {
+export const PublicLanding: FC = () => {
   const [data, setData] = useState<PublicLandingPageData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -66,11 +66,7 @@ export const PublicLanding: React.FC = () => {
   }
 
   if (error || !data) {
-    return (
-      <LoadingContainer>
-        Unable to load page. Please try again later.
-      </LoadingContainer>
-    );
+    return <LoadingContainer>Unable to load page. Please try again later.</LoadingContainer>;
   }
 
   // Sort navigation items by order
