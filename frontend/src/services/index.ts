@@ -1,0 +1,1 @@
+export { landingPageService } from './landingPageService';

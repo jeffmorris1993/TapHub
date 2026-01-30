@@ -1,0 +1,3 @@
+PLACEHOLDER: Add actual hero-image.jpg here
+Recommended specs: 1920x1080px, < 500KB, optimized for web
+For now, the application will use a fallback background color if this image is missing.
