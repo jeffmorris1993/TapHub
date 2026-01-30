@@ -3,8 +3,7 @@ import {
   HeaderContainer,
   HeaderContent,
   LogoSection,
-  LogoCircle,
-  LogoText,
+  LogoImage,
   ChurchInfo,
   ChurchName,
   AppName,
@@ -20,9 +19,7 @@ export const Header = () => {
     <HeaderContainer>
       <HeaderContent>
         <LogoSection to="/" aria-label="Nehemiah's Temple home">
-          <LogoCircle>
-            <LogoText>NT</LogoText>
-          </LogoCircle>
+          <LogoImage src="/neh_temple_logo.jpg" alt="Nehemiah's Temple logo" />
           <ChurchInfo>
             <ChurchName>Nehemiah's Temple</ChurchName>
             <AppName>Tap Hub</AppName>
