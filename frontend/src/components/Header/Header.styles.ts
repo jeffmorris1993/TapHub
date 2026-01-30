@@ -196,3 +196,27 @@ export const MobileActions = styled.div`
     display: flex;
   }
 `;
+
+export const HamburgerButton = styled.button`
+  background: transparent;
+  border: none;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  cursor: pointer;
+  padding: ${({ theme }) => theme.spacing.xs};
+  border-radius: ${({ theme }) => theme.radii.sm};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ${({ theme }) => theme.transitions.fast};
+  min-width: 36px;
+  min-height: 36px;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.background};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.primary};
+    outline-offset: 2px;
+  }
+`;

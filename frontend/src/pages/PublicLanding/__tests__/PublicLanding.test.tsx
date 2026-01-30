@@ -150,4 +150,19 @@ describe('PublicLanding', () => {
       expect(landingPageService.getLandingPageData).toHaveBeenCalled();
     });
   });
+
+  // User Story 5: Remove Bottom Navigation
+  describe('US5: No Bottom Navigation', () => {
+    it('does not render BottomNavigation component', async () => {
+      const { container } = renderWithProviders(<PublicLanding />);
+
+      await waitFor(() => {
+        expect(screen.getByText("I'm New Here")).toBeInTheDocument();
+      });
+
+      // BottomNavigation should not be present
+      const bottomNav = container.querySelector('[aria-label="Mobile navigation"]');
+      expect(bottomNav).not.toBeInTheDocument();
+    });
+  });
 });

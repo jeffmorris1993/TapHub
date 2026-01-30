@@ -8,6 +8,10 @@ export interface NavigationItem {
   enabled: boolean;
 }
 
+export interface MobileMenuItem extends NavigationItem {
+  gradient: string;
+}
+
 export interface ServiceTime {
   id: string;
   day: string;

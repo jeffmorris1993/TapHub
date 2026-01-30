@@ -1,4 +1,7 @@
-import { Settings, Shield, Moon } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { Shield, Menu } from 'lucide-react';
+import { useMobileMenu } from '@/hooks';
+import { MobileMenu } from '@/components/MobileMenu';
 import {
   HeaderContainer,
   HeaderContent,
@@ -12,9 +15,13 @@ import {
   NavLinks,
   NavLink,
   MobileActions,
+  HamburgerButton,
 } from './Header.styles';
 
 export const Header = () => {
+  const { pathname } = useLocation();
+  const { isOpen, openMenu, closeMenu } = useMobileMenu();
+
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -27,7 +34,7 @@ export const Header = () => {
         </LogoSection>
 
         <AdminButton to="/admin">
-          <Settings size={20} aria-hidden="true" />
+          <Shield size={20} aria-hidden="true" />
           Admin
         </AdminButton>
 
@@ -45,11 +52,13 @@ export const Header = () => {
           <button aria-label="Security settings">
             <Shield size={20} />
           </button>
-          <button aria-label="Toggle dark mode">
-            <Moon size={20} />
-          </button>
+          <HamburgerButton onClick={openMenu} aria-label="Open menu" aria-expanded={isOpen}>
+            <Menu size={24} />
+          </HamburgerButton>
         </MobileActions>
       </HeaderContent>
+
+      <MobileMenu isOpen={isOpen} onClose={closeMenu} currentPath={pathname} />
     </HeaderContainer>
   );
 };
