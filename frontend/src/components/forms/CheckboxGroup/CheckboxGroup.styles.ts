@@ -16,6 +16,7 @@ export const CheckboxLabel = styled.label`
   background-color: ${({ theme }) => theme.colors.surface};
   cursor: pointer;
   transition: all ${({ theme }) => theme.transitions.fast};
+  box-sizing: border-box;
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.primary};

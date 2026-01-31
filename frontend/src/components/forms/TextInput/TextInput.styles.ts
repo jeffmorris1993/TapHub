@@ -6,6 +6,7 @@ interface StyledInputProps {
 
 export const StyledInput = styled.input<StyledInputProps>`
   width: 100%;
+  box-sizing: border-box;
   padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.lg};
   border: 2px solid
     ${({ theme, hasError }) =>

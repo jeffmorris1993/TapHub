@@ -7,6 +7,7 @@ export const ConfirmationCard = styled.div`
   padding: ${({ theme }) => theme.spacing.xl};
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 201, 80, 0.15);
+  box-sizing: border-box;
 `;
 
 export const IconCircle = styled.div`

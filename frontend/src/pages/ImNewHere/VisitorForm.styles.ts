@@ -7,6 +7,7 @@ export const FormContainer = styled.form`
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
+  box-sizing: border-box;
 `;
 
 export const FieldGroup = styled.div`
@@ -58,6 +59,7 @@ export const RadioButton = styled.button<RadioButtonProps>`
     isSelected ? theme.colors.primary : theme.colors.textPrimary};
   cursor: pointer;
   transition: all ${({ theme }) => theme.transitions.fast};
+  box-sizing: border-box;
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.primary};

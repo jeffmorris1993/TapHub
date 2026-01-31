@@ -31,6 +31,7 @@ export const RadioButton = styled.button<RadioButtonProps>`
     isSelected ? theme.colors.primary : theme.colors.textPrimary};
   cursor: pointer;
   transition: all ${({ theme }) => theme.transitions.fast};
+  box-sizing: border-box;
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.primary};

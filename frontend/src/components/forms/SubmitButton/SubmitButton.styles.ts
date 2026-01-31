@@ -16,6 +16,7 @@ export const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   width: 100%;
+  box-sizing: border-box;
   padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.xl};
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.textOnPrimary};
