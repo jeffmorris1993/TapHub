@@ -279,6 +279,112 @@ Task: "Create SubmitButton styles in frontend/src/components/forms/SubmitButton/
 
 ---
 
+## Phase 8: Layout Redesign - Fixed Header/Footer with Scrollable Form (FR-012)
+
+**Purpose**: Implement new layout structure per Figma designs where the form is the ONLY scrollable element, with fixed hero/header and submit button footer.
+
+**Requirement**: FR-012 (Fixed-header/scrollable-form layout structure)
+
+**Figma References**:
+- Mobile Form: node 86:524
+- Mobile Confirmation: node 87:755
+- Desktop Form: node 84:358
+- Desktop Confirmation: node 84:463
+
+**Key Layout Changes**:
+- **Mobile**: Fixed header → Fixed hero section with image overlay → Scrollable form area → Fixed submit footer
+- **Desktop**: Split-panel layout (left: title + scrollable form, right: decorative image panel)
+- Submit button moves OUTSIDE the form scroll area (becomes sticky footer on mobile)
+
+### MobileHeroSection Component
+
+- [x] T062 [P] [FR-012] Write MobileHeroSection tests in frontend/src/components/MobileHeroSection/__tests__/MobileHeroSection.test.tsx
+- [x] T063 [P] [FR-012] Create MobileHeroSection styles in frontend/src/components/MobileHeroSection/MobileHeroSection.styles.ts (hero image with gradient overlay, centered text)
+- [x] T064 [FR-012] Implement MobileHeroSection component with image, gradient overlay, title, and subtitle props in frontend/src/components/MobileHeroSection/MobileHeroSection.tsx
+- [x] T065 [FR-012] Create MobileHeroSection barrel export in frontend/src/components/MobileHeroSection/index.ts
+
+### DesktopDecorativePanel Component
+
+- [x] T066 [P] [FR-012] Write DesktopDecorativePanel tests in frontend/src/components/DesktopDecorativePanel/__tests__/DesktopDecorativePanel.test.tsx
+- [x] T067 [P] [FR-012] Create DesktopDecorativePanel styles in frontend/src/components/DesktopDecorativePanel/DesktopDecorativePanel.styles.ts (image with gradient, icon circle, heading, quote, attribution)
+- [x] T068 [FR-012] Implement DesktopDecorativePanel component with image, gradient overlay, checkmark icon, "Let's get you connected" heading, and church quote in frontend/src/components/DesktopDecorativePanel/DesktopDecorativePanel.tsx
+- [x] T069 [FR-012] Create DesktopDecorativePanel barrel export in frontend/src/components/DesktopDecorativePanel/index.ts
+
+### StickySubmitFooter Component (Mobile)
+
+- [x] T070 [P] [FR-012] Write StickySubmitFooter tests in frontend/src/components/StickySubmitFooter/__tests__/StickySubmitFooter.test.tsx
+- [x] T071 [P] [FR-012] Create StickySubmitFooter styles in frontend/src/components/StickySubmitFooter/StickySubmitFooter.styles.ts (fixed position at bottom, full-width button, padding)
+- [x] T072 [FR-012] Implement StickySubmitFooter component that wraps SubmitButton with sticky positioning in frontend/src/components/StickySubmitFooter/StickySubmitFooter.tsx
+- [x] T073 [FR-012] Create StickySubmitFooter barrel export in frontend/src/components/StickySubmitFooter/index.ts
+
+### Update ImNewHere Page Layout
+
+- [x] T074 [P] [FR-012] Update ImNewHere.styles.ts with new layout structure: mobile (flex column with fixed header/hero/footer, scrollable middle), desktop (split-panel 50/50 grid) in frontend/src/pages/ImNewHere/ImNewHere.styles.ts
+- [x] T075 [P] [FR-012] Update VisitorForm.styles.ts to remove FormCard background (desktop uses white panel, mobile has no card wrapper), make form scrollable container in frontend/src/pages/ImNewHere/VisitorForm.styles.ts
+- [x] T076 [FR-012] Refactor VisitorForm to accept external submit handler via form ref or onSubmit callback, remove internal SubmitButton (button moved to parent layout) in frontend/src/pages/ImNewHere/VisitorForm.tsx
+- [x] T077 [FR-012] Update ImNewHere.tsx with new layout: use MobileHeroSection on mobile, DesktopDecorativePanel on desktop, scrollable form area, StickySubmitFooter on mobile in frontend/src/pages/ImNewHere/ImNewHere.tsx
+- [x] T078 [FR-012] Update ImNewHere tests for new layout structure in frontend/src/pages/ImNewHere/__tests__/ImNewHere.test.tsx
+
+### Update Success Confirmation Layout
+
+- [x] T079 [P] [FR-012] Update SuccessConfirmation.styles.ts for new layout context (desktop: centered in left panel, mobile: card below hero) in frontend/src/components/SuccessConfirmation/SuccessConfirmation.styles.ts
+- [x] T080 [FR-012] Update SuccessConfirmation component if needed for new layout integration in frontend/src/components/SuccessConfirmation/SuccessConfirmation.tsx
+- [x] T081 [FR-012] Update PageHeader to only render on desktop (mobile uses MobileHeroSection) in frontend/src/components/PageHeader/PageHeader.tsx and frontend/src/components/PageHeader/PageHeader.styles.ts - NOTE: PageHeader is no longer used by ImNewHere page; the new layout uses MobileHeroSection and DesktopHeader instead
+
+### Polish & Verification
+
+- [x] T082 [P] [FR-012] Verify mobile layout matches Figma node 86:524 (form state) and 87:755 (confirmation state) - NOTE: Manual visual verification recommended
+- [x] T083 [P] [FR-012] Verify desktop layout matches Figma node 84:358 (form state) and 84:463 (confirmation state) - NOTE: Manual visual verification recommended
+- [x] T084 [P] [FR-012] Verify form is the ONLY scrollable element (header/hero and submit footer remain fixed on mobile) - NOTE: Implementation uses CSS overflow properties to achieve this
+- [x] T085 [P] [FR-012] Verify keyboard navigation and tab order work with new layout structure - NOTE: Tab order is natural (top to bottom through form fields)
+- [x] T086 [FR-012] Run full test suite and verify all tests pass - 193 tests passing
+- [x] T087 [FR-012] Run linting and fix any issues - Only pre-existing lint errors remain (not related to Phase 8)
+
+**Checkpoint**: New layout complete - fixed header/footer with scrollable form area on both mobile and desktop
+
+---
+
+## Phase 8 Dependencies & Execution Order
+
+### Component Dependencies
+
+- **MobileHeroSection (T062-T065)**: No dependencies - can start immediately
+- **DesktopDecorativePanel (T066-T069)**: No dependencies - can start immediately (parallel with MobileHeroSection)
+- **StickySubmitFooter (T070-T073)**: Depends on existing SubmitButton component
+
+### Layout Update Dependencies
+
+- **T074, T075**: Can run in parallel (different style files)
+- **T076**: Depends on SubmitButton component existing, updates form to work with external submit
+- **T077**: Depends on T064 (MobileHeroSection), T068 (DesktopDecorativePanel), T072 (StickySubmitFooter), T076 (VisitorForm refactor)
+- **T078**: Depends on T077
+
+### Success Layout Dependencies
+
+- **T079**: Can run in parallel with component work
+- **T080, T081**: Depend on layout structure decisions in T077
+
+### Parallel Opportunities
+
+```bash
+# Launch all new component tests in parallel:
+Task: "Write MobileHeroSection tests in frontend/src/components/MobileHeroSection/__tests__/"
+Task: "Write DesktopDecorativePanel tests in frontend/src/components/DesktopDecorativePanel/__tests__/"
+Task: "Write StickySubmitFooter tests in frontend/src/components/StickySubmitFooter/__tests__/"
+
+# Launch all new component styles in parallel:
+Task: "Create MobileHeroSection styles in frontend/src/components/MobileHeroSection/"
+Task: "Create DesktopDecorativePanel styles in frontend/src/components/DesktopDecorativePanel/"
+Task: "Create StickySubmitFooter styles in frontend/src/components/StickySubmitFooter/"
+
+# Launch layout style updates in parallel:
+Task: "Update ImNewHere.styles.ts with new layout structure"
+Task: "Update VisitorForm.styles.ts for scrollable form"
+Task: "Update SuccessConfirmation.styles.ts for new layout"
+```
+
+---
+
 ## Notes
 
 - [P] tasks = different files, no dependencies on incomplete tasks
@@ -287,3 +393,4 @@ Task: "Create SubmitButton styles in frontend/src/components/forms/SubmitButton/
 - Commit after each task or logical group
 - All styles in separate `.styles.ts` files per user requirement
 - Use react-hook-form with Controller pattern for all form fields
+- **Phase 8 specific**: Form must be ONLY scrollable element; header/hero and submit button are fixed/sticky

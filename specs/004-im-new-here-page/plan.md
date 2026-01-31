@@ -17,7 +17,7 @@ Create a visitor registration page ("I'm New Here") for Nehemiah's Temple church
 **Project Type**: Web application (frontend only for this feature)
 **Performance Goals**: Page load < 2 seconds, form completion < 2 minutes
 **Constraints**: WCAG 2.1 AA accessibility, mobile-first design, keyboard navigation support
-**Scale/Scope**: Single page with form, 6 reusable form components
+**Scale/Scope**: Single page with form, 6 reusable form components + 3 layout components (Phase 8)
 
 ## Constitution Check
 
@@ -101,11 +101,29 @@ frontend/src/
 │   │   ├── PageHeader.tsx
 │   │   ├── PageHeader.styles.ts
 │   │   └── index.ts
-│   └── SuccessConfirmation/            # NEW: Success confirmation card
+│   ├── SuccessConfirmation/            # NEW: Success confirmation card
+│   │   ├── __tests__/
+│   │   │   └── SuccessConfirmation.test.tsx
+│   │   ├── SuccessConfirmation.tsx
+│   │   ├── SuccessConfirmation.styles.ts
+│   │   └── index.ts
+│   ├── MobileHeroSection/              # NEW (Phase 8): Hero with image overlay for mobile
+│   │   ├── __tests__/
+│   │   │   └── MobileHeroSection.test.tsx
+│   │   ├── MobileHeroSection.tsx
+│   │   ├── MobileHeroSection.styles.ts
+│   │   └── index.ts
+│   ├── DesktopDecorativePanel/         # NEW (Phase 8): Right-side decorative panel for desktop
+│   │   ├── __tests__/
+│   │   │   └── DesktopDecorativePanel.test.tsx
+│   │   ├── DesktopDecorativePanel.tsx
+│   │   ├── DesktopDecorativePanel.styles.ts
+│   │   └── index.ts
+│   └── StickySubmitFooter/             # NEW (Phase 8): Fixed submit button footer for mobile
 │       ├── __tests__/
-│       │   └── SuccessConfirmation.test.tsx
-│       ├── SuccessConfirmation.tsx
-│       ├── SuccessConfirmation.styles.ts
+│       │   └── StickySubmitFooter.test.tsx
+│       ├── StickySubmitFooter.tsx
+│       ├── StickySubmitFooter.styles.ts
 │       └── index.ts
 ├── pages/
 │   └── ImNewHere/                      # NEW: I'm New Here page

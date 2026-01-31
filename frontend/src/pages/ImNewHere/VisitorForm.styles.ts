@@ -1,17 +1,23 @@
 import styled from '@emotion/styled';
 
+/**
+ * Form card wrapper - white background with shadow on mobile,
+ * transparent on desktop (left panel provides background).
+ */
 export const FormCard = styled.div`
   background-color: ${({ theme }) => theme.colors.surface};
-  border-radius: ${({ theme }) => theme.radii['2xl']};
-  box-shadow: 0px 20px 25px 0px rgba(0, 0, 0, 0.1);
+  border-radius: ${({ theme }) => theme.radii.xl};
+  box-shadow: ${({ theme }) => theme.shadows.lg};
   padding: ${({ theme }) => theme.spacing.lg};
   box-sizing: border-box;
   width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
+  overflow: hidden;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: ${({ theme }) => theme.spacing['2xl']};
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
   }
 `;
 
@@ -21,34 +27,46 @@ export const FormContainer = styled.form`
   gap: ${({ theme }) => theme.spacing.lg};
   width: 100%;
   box-sizing: border-box;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    gap: ${({ theme }) => theme.spacing.md};
+  }
 `;
 
 export const FieldGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.lg};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    gap: ${({ theme }) => theme.spacing.md};
+  }
 `;
 
 export const SectionLabel = styled.span`
   font-family: ${({ theme }) => theme.typography.fontFamily.body};
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
   color: ${({ theme }) => theme.colors.textPrimary};
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.xs};
-  margin-bottom: ${({ theme }) => theme.spacing.xs};
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
 export const RequiredAsterisk = styled.span`
-  color: ${({ theme }) => theme.colors.error};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+  color: #fb2c36;
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
 `;
 
 export const RadioButtonGroup = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: ${({ theme }) => theme.spacing.md};
-  flex-wrap: wrap;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 interface RadioButtonProps {
@@ -56,8 +74,6 @@ interface RadioButtonProps {
 }
 
 export const RadioButton = styled.button<RadioButtonProps>`
-  flex: 1;
-  min-width: 140px;
   padding: ${({ theme }) => theme.spacing.md};
   border: 2px solid
     ${({ theme, isSelected }) =>
@@ -69,10 +85,12 @@ export const RadioButton = styled.button<RadioButtonProps>`
   font-size: ${({ theme }) => theme.typography.fontSize.base};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
   color: ${({ theme, isSelected }) =>
-    isSelected ? theme.colors.primary : theme.colors.textPrimary};
+    isSelected ? theme.colors.primary : theme.colors.textSecondary};
   cursor: pointer;
   transition: all ${({ theme }) => theme.transitions.fast};
   box-sizing: border-box;
+  min-height: 50px;
+  text-align: center;
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.primary};

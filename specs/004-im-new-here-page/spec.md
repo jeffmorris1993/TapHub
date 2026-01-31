@@ -6,6 +6,12 @@
 **Input**: User description: "we need to create the I'm New Here page, that page should look like the design in figma"
 **Design Reference**: [Figma Design](https://www.figma.com/design/4KpDlaCF5l1Y85ZQzi4Obg/Tap-Hub?node-id=3-177)
 
+**Layout Redesign References** (Phase 8):
+- Mobile Form: [node 86:524](https://www.figma.com/design/4KpDlaCF5l1Y85ZQzi4Obg/Tap-Hub?node-id=86-524)
+- Mobile Confirmation: [node 87:755](https://www.figma.com/design/4KpDlaCF5l1Y85ZQzi4Obg/Tap-Hub?node-id=87-755)
+- Desktop Form: [node 84:358](https://www.figma.com/design/4KpDlaCF5l1Y85ZQzi4Obg/Tap-Hub?node-id=84-358)
+- Desktop Confirmation: [node 84:463](https://www.figma.com/design/4KpDlaCF5l1Y85ZQzi4Obg/Tap-Hub?node-id=84-463)
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - New Visitor Registration (Priority: P1)
@@ -105,6 +111,11 @@ A visitor wants to provide their phone number so the church can contact them via
   - "Thank you!" heading
   - Message: "Someone from our team will reach out to you this week. We can't wait to meet you in person!"
   - "Submit Another" button to reset and show form again
+- **FR-012**: System MUST implement a fixed-header/scrollable-form layout structure:
+  - **Mobile**: Fixed app header at top, fixed hero section with church image and overlay text below header, scrollable form area in the middle, fixed submit button footer at bottom
+  - **Desktop**: Split-panel layout with left side (title, subtitle, scrollable form area) and right side (decorative image panel with gradient overlay, icon, "Let's get you connected" heading, and church quote)
+  - Form MUST be the ONLY scrollable element; header/hero and submit button remain fixed/sticky
+  - Layout per Figma designs: nodes 86:524, 87:755 (mobile), 84:358, 84:463 (desktop)
 
 ### Key Entities
 
@@ -124,7 +135,7 @@ A visitor wants to provide their phone number so the church can contact them via
 - **SC-001**: Visitors can complete the registration form in under 2 minutes
 - **SC-002**: 95% of form submissions capture all required information correctly
 - **SC-003**: Form validation errors are displayed immediately and clearly to users
-- **SC-004**: Page loads and is fully interactive within 3 seconds on standard connections
+- **SC-004**: Page loads and is fully interactive within 2 seconds on 3G mobile connections
 - **SC-005**: Form is fully accessible via keyboard navigation
 - **SC-006**: Page displays correctly on both desktop and mobile devices
 

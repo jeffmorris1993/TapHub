@@ -23,7 +23,7 @@ export const SuccessConfirmation: FC<SuccessConfirmationProps> = ({
   return (
     <ConfirmationCard>
       <IconCircle>
-        <Check size={32} color="white" data-testid="check-icon" />
+        <Check data-testid="check-icon" strokeWidth={2.5} />
       </IconCircle>
       <Heading>Thank you!</Heading>
       <Message>
