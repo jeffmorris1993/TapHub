@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@/theme';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { PublicLanding } from '@/pages/PublicLanding';
+import { ImNewHerePage } from '@/pages/ImNewHere';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<PublicLanding />} />
-            {/* Additional routes will be added as features are built */}
+            <Route path="/new-here" element={<ImNewHerePage />} />
           </Routes>
         </Router>
       </ThemeProvider>

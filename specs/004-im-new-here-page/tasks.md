@@ -24,9 +24,9 @@
 
 **Purpose**: Install dependencies and create base types/data
 
-- [ ] T001 Install react-hook-form dependency in frontend/package.json
-- [ ] T002 [P] Create visitor types in frontend/src/types/visitor.ts
-- [ ] T003 [P] Create interest options data in frontend/src/data/interests.ts
+- [x] T001 Install react-hook-form dependency in frontend/package.json
+- [x] T002 [P] Create visitor types in frontend/src/types/visitor.ts
+- [x] T003 [P] Create interest options data in frontend/src/data/interests.ts
 
 ---
 
@@ -38,39 +38,39 @@
 
 ### API Layer
 
-- [ ] T004 Write apiClient tests in frontend/src/services/api/__tests__/apiClient.test.ts
-- [ ] T005 Implement apiClient with mock support in frontend/src/services/api/apiClient.ts
-- [ ] T006 Create apiClient barrel export in frontend/src/services/api/index.ts
+- [x] T004 Write apiClient tests in frontend/src/services/api/__tests__/apiClient.test.ts
+- [x] T005 Implement apiClient with mock support in frontend/src/services/api/apiClient.ts
+- [x] T006 Create apiClient barrel export in frontend/src/services/api/index.ts
 
 ### Visitor Service
 
-- [ ] T007 Write visitorService tests in frontend/src/services/__tests__/visitorService.test.ts
-- [ ] T008 Implement visitorService in frontend/src/services/visitorService.ts
+- [x] T007 Write visitorService tests in frontend/src/services/__tests__/visitorService.test.ts
+- [x] T008 Implement visitorService in frontend/src/services/visitorService.ts
 
 ### FormField Component
 
-- [ ] T009 [P] Write FormField tests in frontend/src/components/forms/FormField/__tests__/FormField.test.tsx
-- [ ] T010 [P] Create FormField styles in frontend/src/components/forms/FormField/FormField.styles.ts
-- [ ] T011 Implement FormField component in frontend/src/components/forms/FormField/FormField.tsx
-- [ ] T012 Create FormField barrel export in frontend/src/components/forms/FormField/index.ts
+- [x] T009 [P] Write FormField tests in frontend/src/components/forms/FormField/__tests__/FormField.test.tsx
+- [x] T010 [P] Create FormField styles in frontend/src/components/forms/FormField/FormField.styles.ts
+- [x] T011 Implement FormField component in frontend/src/components/forms/FormField/FormField.tsx
+- [x] T012 Create FormField barrel export in frontend/src/components/forms/FormField/index.ts
 
 ### TextInput Component
 
-- [ ] T013 [P] Write TextInput tests in frontend/src/components/forms/TextInput/__tests__/TextInput.test.tsx
-- [ ] T014 [P] Create TextInput styles in frontend/src/components/forms/TextInput/TextInput.styles.ts
-- [ ] T015 Implement TextInput component in frontend/src/components/forms/TextInput/TextInput.tsx
-- [ ] T016 Create TextInput barrel export in frontend/src/components/forms/TextInput/index.ts
+- [x] T013 [P] Write TextInput tests in frontend/src/components/forms/TextInput/__tests__/TextInput.test.tsx
+- [x] T014 [P] Create TextInput styles in frontend/src/components/forms/TextInput/TextInput.styles.ts
+- [x] T015 Implement TextInput component in frontend/src/components/forms/TextInput/TextInput.tsx
+- [x] T016 Create TextInput barrel export in frontend/src/components/forms/TextInput/index.ts
 
 ### SubmitButton Component
 
-- [ ] T017 [P] Write SubmitButton tests in frontend/src/components/forms/SubmitButton/__tests__/SubmitButton.test.tsx
-- [ ] T018 [P] Create SubmitButton styles in frontend/src/components/forms/SubmitButton/SubmitButton.styles.ts
-- [ ] T019 Implement SubmitButton component in frontend/src/components/forms/SubmitButton/SubmitButton.tsx
-- [ ] T020 Create SubmitButton barrel export in frontend/src/components/forms/SubmitButton/index.ts
+- [x] T017 [P] Write SubmitButton tests in frontend/src/components/forms/SubmitButton/__tests__/SubmitButton.test.tsx
+- [x] T018 [P] Create SubmitButton styles in frontend/src/components/forms/SubmitButton/SubmitButton.styles.ts
+- [x] T019 Implement SubmitButton component in frontend/src/components/forms/SubmitButton/SubmitButton.tsx
+- [x] T020 Create SubmitButton barrel export in frontend/src/components/forms/SubmitButton/index.ts
 
 ### Forms Barrel Export
 
-- [ ] T021 Create forms barrel export in frontend/src/components/forms/index.ts
+- [x] T021 Create forms barrel export in frontend/src/components/forms/index.ts
 
 **Checkpoint**: Foundation ready - all reusable form components available
 
@@ -86,28 +86,28 @@
 
 > **NOTE: Write tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T022 [P] [US1] Write VisitorForm tests for name/email validation in frontend/src/pages/ImNewHere/__tests__/VisitorForm.test.tsx
-- [ ] T023 [P] [US1] Write ImNewHere page tests in frontend/src/pages/ImNewHere/__tests__/ImNewHere.test.tsx
+- [x] T022 [P] [US1] Write VisitorForm tests for name/email validation in frontend/src/pages/ImNewHere/__tests__/VisitorForm.test.tsx
+- [x] T023 [P] [US1] Write ImNewHere page tests in frontend/src/pages/ImNewHere/__tests__/ImNewHere.test.tsx
 
 ### Implementation for User Story 1
 
-- [ ] T024 [P] [US1] Create VisitorForm styles in frontend/src/pages/ImNewHere/VisitorForm.styles.ts
-- [ ] T025 [P] [US1] Create ImNewHere page styles in frontend/src/pages/ImNewHere/ImNewHere.styles.ts
-- [ ] T026 [US1] Implement VisitorForm with name/email fields using react-hook-form in frontend/src/pages/ImNewHere/VisitorForm.tsx
-- [ ] T027 [US1] Implement ImNewHere page container with form/success state toggle in frontend/src/pages/ImNewHere/ImNewHere.tsx
-- [ ] T028 [US1] Create ImNewHere page barrel export in frontend/src/pages/ImNewHere/index.ts
-- [ ] T029 [US1] Add /new-here route to frontend/src/App.tsx
+- [x] T024 [P] [US1] Create VisitorForm styles in frontend/src/pages/ImNewHere/VisitorForm.styles.ts
+- [x] T025 [P] [US1] Create ImNewHere page styles in frontend/src/pages/ImNewHere/ImNewHere.styles.ts
+- [x] T026 [US1] Implement VisitorForm with name/email fields using react-hook-form in frontend/src/pages/ImNewHere/VisitorForm.tsx
+- [x] T027 [US1] Implement ImNewHere page container with form/success state toggle in frontend/src/pages/ImNewHere/ImNewHere.tsx
+- [x] T028 [US1] Create ImNewHere page barrel export in frontend/src/pages/ImNewHere/index.ts
+- [x] T029 [US1] Add /new-here route to frontend/src/App.tsx
 
 ### Page Layout Components for User Story 1
 
-- [ ] T030 [P] [US1] Write PageHeader tests in frontend/src/components/PageHeader/__tests__/PageHeader.test.tsx
-- [ ] T031 [P] [US1] Create PageHeader styles in frontend/src/components/PageHeader/PageHeader.styles.ts
-- [ ] T032 [US1] Implement PageHeader component with dynamic title/subtitle props in frontend/src/components/PageHeader/PageHeader.tsx
-- [ ] T033 [US1] Create PageHeader barrel export in frontend/src/components/PageHeader/index.ts
-- [ ] T034 [P] [US1] Write SuccessConfirmation tests in frontend/src/components/SuccessConfirmation/__tests__/SuccessConfirmation.test.tsx
-- [ ] T035 [P] [US1] Create SuccessConfirmation styles in frontend/src/components/SuccessConfirmation/SuccessConfirmation.styles.ts
-- [ ] T036 [US1] Implement SuccessConfirmation component with green checkmark, thank you message, and Submit Another button in frontend/src/components/SuccessConfirmation/SuccessConfirmation.tsx
-- [ ] T037 [US1] Create SuccessConfirmation barrel export in frontend/src/components/SuccessConfirmation/index.ts
+- [x] T030 [P] [US1] Write PageHeader tests in frontend/src/components/PageHeader/__tests__/PageHeader.test.tsx
+- [x] T031 [P] [US1] Create PageHeader styles in frontend/src/components/PageHeader/PageHeader.styles.ts
+- [x] T032 [US1] Implement PageHeader component with dynamic title/subtitle props in frontend/src/components/PageHeader/PageHeader.tsx
+- [x] T033 [US1] Create PageHeader barrel export in frontend/src/components/PageHeader/index.ts
+- [x] T034 [P] [US1] Write SuccessConfirmation tests in frontend/src/components/SuccessConfirmation/__tests__/SuccessConfirmation.test.tsx
+- [x] T035 [P] [US1] Create SuccessConfirmation styles in frontend/src/components/SuccessConfirmation/SuccessConfirmation.styles.ts
+- [x] T036 [US1] Implement SuccessConfirmation component with green checkmark, thank you message, and Submit Another button in frontend/src/components/SuccessConfirmation/SuccessConfirmation.tsx
+- [x] T037 [US1] Create SuccessConfirmation barrel export in frontend/src/components/SuccessConfirmation/index.ts
 
 **Checkpoint**: User Story 1 complete - basic visitor registration with name/email works independently
 
@@ -121,17 +121,17 @@
 
 ### Tests for User Story 2
 
-- [ ] T038 [P] [US2] Write RadioGroup tests in frontend/src/components/forms/RadioGroup/__tests__/RadioGroup.test.tsx
-- [ ] T039 [P] [US2] Write VisitorForm tests for visit status selection in frontend/src/pages/ImNewHere/__tests__/VisitorForm.test.tsx (extend existing)
+- [x] T038 [P] [US2] Write RadioGroup tests in frontend/src/components/forms/RadioGroup/__tests__/RadioGroup.test.tsx
+- [x] T039 [P] [US2] Write VisitorForm tests for visit status selection in frontend/src/pages/ImNewHere/__tests__/VisitorForm.test.tsx (extend existing)
 
 ### Implementation for User Story 2
 
-- [ ] T040 [P] [US2] Create RadioGroup styles in frontend/src/components/forms/RadioGroup/RadioGroup.styles.ts
-- [ ] T041 [US2] Implement RadioGroup component with button-style options in frontend/src/components/forms/RadioGroup/RadioGroup.tsx
-- [ ] T042 [US2] Create RadioGroup barrel export in frontend/src/components/forms/RadioGroup/index.ts
-- [ ] T043 [US2] Update forms barrel export to include RadioGroup in frontend/src/components/forms/index.ts
-- [ ] T044 [US2] Add isFirstTime field with RadioGroup to VisitorForm in frontend/src/pages/ImNewHere/VisitorForm.tsx
-- [ ] T045 [US2] Add validation for required visit status selection in frontend/src/pages/ImNewHere/VisitorForm.tsx
+- [x] T040 [P] [US2] Create RadioGroup styles in frontend/src/components/forms/RadioGroup/RadioGroup.styles.ts
+- [x] T041 [US2] Implement RadioGroup component with button-style options in frontend/src/components/forms/RadioGroup/RadioGroup.tsx
+- [x] T042 [US2] Create RadioGroup barrel export in frontend/src/components/forms/RadioGroup/index.ts
+- [x] T043 [US2] Update forms barrel export to include RadioGroup in frontend/src/components/forms/index.ts
+- [x] T044 [US2] Add isFirstTime field with RadioGroup to VisitorForm in frontend/src/pages/ImNewHere/VisitorForm.tsx
+- [x] T045 [US2] Add validation for required visit status selection in frontend/src/pages/ImNewHere/VisitorForm.tsx
 
 **Checkpoint**: User Story 2 complete - visit status selection works independently
 
@@ -145,16 +145,16 @@
 
 ### Tests for User Story 3
 
-- [ ] T046 [P] [US3] Write CheckboxGroup tests in frontend/src/components/forms/CheckboxGroup/__tests__/CheckboxGroup.test.tsx
-- [ ] T047 [P] [US3] Write VisitorForm tests for interests selection in frontend/src/pages/ImNewHere/__tests__/VisitorForm.test.tsx (extend existing)
+- [x] T046 [P] [US3] Write CheckboxGroup tests in frontend/src/components/forms/CheckboxGroup/__tests__/CheckboxGroup.test.tsx
+- [x] T047 [P] [US3] Write VisitorForm tests for interests selection in frontend/src/pages/ImNewHere/__tests__/VisitorForm.test.tsx (extend existing)
 
 ### Implementation for User Story 3
 
-- [ ] T048 [P] [US3] Create CheckboxGroup styles in frontend/src/components/forms/CheckboxGroup/CheckboxGroup.styles.ts
-- [ ] T049 [US3] Implement CheckboxGroup component in frontend/src/components/forms/CheckboxGroup/CheckboxGroup.tsx
-- [ ] T050 [US3] Create CheckboxGroup barrel export in frontend/src/components/forms/CheckboxGroup/index.ts
-- [ ] T051 [US3] Update forms barrel export to include CheckboxGroup in frontend/src/components/forms/index.ts
-- [ ] T052 [US3] Add interests field with CheckboxGroup to VisitorForm using INTEREST_OPTIONS data in frontend/src/pages/ImNewHere/VisitorForm.tsx
+- [x] T048 [P] [US3] Create CheckboxGroup styles in frontend/src/components/forms/CheckboxGroup/CheckboxGroup.styles.ts
+- [x] T049 [US3] Implement CheckboxGroup component in frontend/src/components/forms/CheckboxGroup/CheckboxGroup.tsx
+- [x] T050 [US3] Create CheckboxGroup barrel export in frontend/src/components/forms/CheckboxGroup/index.ts
+- [x] T051 [US3] Update forms barrel export to include CheckboxGroup in frontend/src/components/forms/index.ts
+- [x] T052 [US3] Add interests field with CheckboxGroup to VisitorForm using INTEREST_OPTIONS data in frontend/src/pages/ImNewHere/VisitorForm.tsx
 
 **Checkpoint**: User Story 3 complete - interest selection works independently
 
@@ -168,12 +168,12 @@
 
 ### Tests for User Story 4
 
-- [ ] T053 [P] [US4] Write VisitorForm tests for optional phone field in frontend/src/pages/ImNewHere/__tests__/VisitorForm.test.tsx (extend existing)
+- [x] T053 [P] [US4] Write VisitorForm tests for optional phone field in frontend/src/pages/ImNewHere/__tests__/VisitorForm.test.tsx (extend existing)
 
 ### Implementation for User Story 4
 
-- [ ] T054 [US4] Add phone field (optional, no validation) to VisitorForm in frontend/src/pages/ImNewHere/VisitorForm.tsx
-- [ ] T055 [US4] Update form submission to include phone in visitorService call
+- [x] T054 [US4] Add phone field (optional, no validation) to VisitorForm in frontend/src/pages/ImNewHere/VisitorForm.tsx
+- [x] T055 [US4] Update form submission to include phone in visitorService call
 
 **Checkpoint**: User Story 4 complete - optional phone field works independently
 
@@ -183,12 +183,12 @@
 
 **Purpose**: Final integration, accessibility, and navigation updates
 
-- [ ] T056 Add "I'm New Here" to mobile menu items in frontend/src/data/mobileMenuItems.ts
-- [ ] T057 [P] Add navigation card for /new-here to landing page data in frontend/src/data/navigationItems.ts
-- [ ] T058 [P] Verify keyboard navigation works for entire form (tab order, enter to submit)
-- [ ] T059 [P] Verify mobile responsive layout matches Figma design
-- [ ] T060 Run full test suite and verify all tests pass
-- [ ] T061 Run linting and fix any issues
+- [x] T056 Add "I'm New Here" to mobile menu items in frontend/src/data/mobileMenuItems.ts
+- [x] T057 [P] Add navigation card for /new-here to landing page data in frontend/src/data/navigationItems.ts
+- [x] T058 [P] Verify keyboard navigation works for entire form (tab order, enter to submit)
+- [x] T059 [P] Verify mobile responsive layout matches Figma design
+- [x] T060 Run full test suite and verify all tests pass
+- [x] T061 Run linting and fix any issues
 
 ---
 
