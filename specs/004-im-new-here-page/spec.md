@@ -10,7 +10,7 @@
 
 ### User Story 1 - New Visitor Registration (Priority: P1)
 
-A first-time visitor to Nehemiah's Temple wants to introduce themselves and let the church know they're interested in connecting. They navigate to the "I'm New Here" page and fill out their contact information along with their areas of interest so the church can follow up appropriately.
+A first-time visitor to Nehemiah's Temple wants to introduce themselves and let the church know they're interested in connecting. They navigate to the "I'm New Here" page and fill out their name and email so the church can follow up appropriately.
 
 **Why this priority**: This is the core purpose of the page - capturing visitor information is essential for the church to welcome and connect with new attendees. Without this, the page serves no purpose.
 
@@ -95,10 +95,16 @@ A visitor wants to provide their phone number so the church can contact them via
   - Get baptized
 - **FR-006**: System MUST allow visitors to select zero or more interest options
 - **FR-007**: System MUST display a Submit button that captures all form data
-- **FR-008**: System MUST display confirmation to the user after successful form submission
+- **FR-008**: System MUST display confirmation to the user after successful form submission (see FR-011 for details)
 - **FR-009**: System MUST display the page header with navigation consistent with other TapHub pages
-- **FR-010**: System MUST display a "Need help?" link in the footer
-- **FR-011**: System MUST visually highlight the selected option for the first-time visitor question (selected state with brand color)
+- **FR-010**: System MUST visually highlight the selected option for the first-time visitor question (selected state with brand color)
+- **FR-011**: System MUST display a success confirmation after form submission with:
+  - Page header changes to "Welcome!" with subtitle "We're excited to connect with you"
+  - Success card with green border (#00c950)
+  - Green circle with white checkmark icon
+  - "Thank you!" heading
+  - Message: "Someone from our team will reach out to you this week. We can't wait to meet you in person!"
+  - "Submit Another" button to reset and show form again
 
 ### Key Entities
 
@@ -138,9 +144,8 @@ A visitor wants to provide their phone number so the church can contact them via
 
 ## Assumptions
 
-- The "Need help?" link will direct users to a general help/contact page (implementation detail to be determined during planning)
-- Submission confirmation will be a visual indicator on the page (exact UX to be determined during planning)
 - The existing TapHub header/navigation component will be reused for consistency
+- Success confirmation design per Figma: [Confirmation State](https://www.figma.com/design/4KpDlaCF5l1Y85ZQzi4Obg/Tap-Hub?node-id=64-207)
 - Phone number format validation is not required (accepts any input)
 - Form data will be stored in browser local storage as a frontend-only MVP; backend integration can be added in a future iteration
 - This MVP focuses on the visitor experience; staff access to submissions is a future enhancement

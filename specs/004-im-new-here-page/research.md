@@ -243,10 +243,14 @@ Show inline validation on blur, loading state during submission, and success con
 
 ### Confirmation Design (per Figma)
 After successful submission, show:
-- Success icon (CheckCircle from lucide-react)
-- "Thank you for connecting with us!"
-- "We'll be in touch soon."
-- Button to return to home or submit another
+- Page header changes to "Welcome!" with subtitle "We're excited to connect with you"
+- Success card with green border (#00c950) and shadow
+- Green circle (#00c950) with white Check icon (lucide-react)
+- "Thank you!" heading (24px bold)
+- Message: "Someone from our team will reach out to you this week. We can't wait to meet you in person!"
+- "Submit Another" button (brand color, pill-shaped) - resets form state
+
+Design reference: [Figma - Success State](https://www.figma.com/design/4KpDlaCF5l1Y85ZQzi4Obg/Tap-Hub?node-id=64-207)
 
 ## 7. Accessibility Requirements
 

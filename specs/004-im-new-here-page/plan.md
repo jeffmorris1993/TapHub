@@ -101,11 +101,11 @@ frontend/src/
 │   │   ├── PageHeader.tsx
 │   │   ├── PageHeader.styles.ts
 │   │   └── index.ts
-│   └── Footer/                         # NEW: Footer with help link
+│   └── SuccessConfirmation/            # NEW: Success confirmation card
 │       ├── __tests__/
-│       │   └── Footer.test.tsx
-│       ├── Footer.tsx
-│       ├── Footer.styles.ts
+│       │   └── SuccessConfirmation.test.tsx
+│       ├── SuccessConfirmation.tsx
+│       ├── SuccessConfirmation.styles.ts
 │       └── index.ts
 ├── pages/
 │   └── ImNewHere/                      # NEW: I'm New Here page

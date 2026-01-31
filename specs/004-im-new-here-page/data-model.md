@@ -151,7 +151,7 @@ export interface ApiError {
 | Filling | User is entering data | Form with partial data, validation on blur |
 | Invalid | Validation errors present | Error messages displayed, submit disabled |
 | Submitting | Form submitted, awaiting response | Loading spinner, form disabled |
-| Confirmed | Submission successful | Success message, form hidden |
+| Confirmed | Submission successful | SuccessConfirmation component with "Thank you!" message and "Submit Another" button |
 | Error | Submission failed | Error message, retry button |
 
 ## Storage (MVP)
