@@ -109,6 +109,7 @@ A visitor wants to provide their phone number so the church can contact them via
   - First time visitor flag (boolean, required)
   - List of selected interests (zero or more)
   - Submission timestamp
+  - Storage: Browser local storage (frontend-only MVP)
 
 ## Success Criteria *(mandatory)*
 
@@ -121,10 +122,25 @@ A visitor wants to provide their phone number so the church can contact them via
 - **SC-005**: Form is fully accessible via keyboard navigation
 - **SC-006**: Page displays correctly on both desktop and mobile devices
 
+## Clarifications
+
+### Session 2026-01-30
+
+- Q: Where should submitted visitor registration data be stored/sent? → A: Store in app state/local storage (frontend-only MVP)
+- Q: How should church staff view submitted visitor registrations? → A: MVP shows confirmation only; staff access deferred to future iteration
+
+## Out of Scope (MVP)
+
+- Admin/staff view to access submitted registrations (deferred to future iteration)
+- Backend API or database integration
+- Email notifications to church staff
+- Integration with church management systems
+
 ## Assumptions
 
 - The "Need help?" link will direct users to a general help/contact page (implementation detail to be determined during planning)
 - Submission confirmation will be a visual indicator on the page (exact UX to be determined during planning)
 - The existing TapHub header/navigation component will be reused for consistency
 - Phone number format validation is not required (accepts any input)
-- Form data will be stored for church staff to access (data persistence mechanism is an implementation detail)
+- Form data will be stored in browser local storage as a frontend-only MVP; backend integration can be added in a future iteration
+- This MVP focuses on the visitor experience; staff access to submissions is a future enhancement
