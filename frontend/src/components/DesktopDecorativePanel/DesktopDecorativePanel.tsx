@@ -30,14 +30,9 @@ export const DesktopDecorativePanel: FC<DesktopDecorativePanelProps> = ({
     <PanelContainer role="complementary" className={className}>
       <PanelImage src={imageSrc} alt="" aria-hidden="true" />
       <PanelContent>
-        <IconCircle>
-          <Check data-testid="checkmark-icon" strokeWidth={2} />
-        </IconCircle>
         <PanelHeading>Let's get you connected</PanelHeading>
         <PanelQuote>"Come As You Are and Change As You Come"</PanelQuote>
-        <PanelAttribution>
-          — Nehemiah's Temple of the Apostolic Faith
-        </PanelAttribution>
+        <PanelAttribution>— Nehemiah's Temple of the Apostolic Faith</PanelAttribution>
       </PanelContent>
     </PanelContainer>
   );

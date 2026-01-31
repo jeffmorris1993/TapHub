@@ -21,8 +21,8 @@ import {
 } from './ImNewHere.styles';
 
 // Image paths - these would typically come from a CMS or config
-const HERO_IMAGE = '/images/church-interior.jpg';
-const DECORATIVE_IMAGE = '/images/church-people.jpg';
+const HERO_IMAGE = '/im_new_here.png';
+const DECORATIVE_IMAGE = '/im_new_here.png';
 
 /**
  * I'm New Here page for visitor registration.
