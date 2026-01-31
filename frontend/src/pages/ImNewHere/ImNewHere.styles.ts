@@ -9,8 +9,12 @@ export const PageContainer = styled.div`
 
 export const ContentContainer = styled.main`
   width: 100%;
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto;
   padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.md};
   box-sizing: border-box;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: ${({ theme }) => theme.spacing['2xl']} ${({ theme }) => theme.spacing.xl};
+  }
 `;

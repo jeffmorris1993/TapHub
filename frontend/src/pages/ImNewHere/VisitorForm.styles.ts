@@ -1,12 +1,25 @@
 import styled from '@emotion/styled';
 
+export const FormCard = styled.div`
+  background-color: ${({ theme }) => theme.colors.surface};
+  border-radius: ${({ theme }) => theme.radii['2xl']};
+  box-shadow: 0px 20px 25px 0px rgba(0, 0, 0, 0.1);
+  padding: ${({ theme }) => theme.spacing.lg};
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: ${({ theme }) => theme.spacing['2xl']};
+  }
+`;
+
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.lg};
   width: 100%;
-  max-width: 480px;
-  margin: 0 auto;
   box-sizing: border-box;
 `;
 
