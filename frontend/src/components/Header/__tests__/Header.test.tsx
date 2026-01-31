@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { describe, it, expect } from 'vitest';
 import { ThemeProvider } from '@/theme';
@@ -14,9 +14,28 @@ const renderHeader = () =>
   );
 
 describe('Header', () => {
-  it('renders church logo with "NT" text', () => {
+  it('renders church logo image', () => {
     renderHeader();
-    expect(screen.getByText('NT')).toBeInTheDocument();
+    expect(screen.getByAltText("Nehemiah's Temple logo")).toBeInTheDocument();
+  });
+
+  // User Story 1: Hamburger button triggers menu
+  describe('US1: Hamburger Menu Integration', () => {
+    it('shows hamburger button in mobile actions', () => {
+      renderHeader();
+      const hamburgerButton = screen.getByLabelText('Open menu');
+      expect(hamburgerButton).toBeInTheDocument();
+    });
+
+    it('opens mobile menu when hamburger button clicked', () => {
+      renderHeader();
+      const hamburgerButton = screen.getByLabelText('Open menu');
+
+      fireEvent.click(hamburgerButton);
+
+      expect(screen.getByRole('dialog')).toBeInTheDocument();
+      expect(screen.getByLabelText('Navigation menu')).toBeInTheDocument();
+    });
   });
 
   it('renders church name', () => {
@@ -54,7 +73,7 @@ describe('Header', () => {
   it('logo is clickable and links to home', () => {
     renderHeader();
 
-    const logo = screen.getByText('NT').closest('a');
+    const logo = screen.getByAltText("Nehemiah's Temple logo").closest('a');
     expect(logo).toHaveAttribute('href', '/');
   });
 });
