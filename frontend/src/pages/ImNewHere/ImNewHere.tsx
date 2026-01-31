@@ -23,15 +23,15 @@ export const ImNewHerePage: FC = () => {
   return (
     <PageContainer>
       <Header />
+      <PageHeader
+        title={isSuccess ? 'Welcome!' : "We're glad you're here!"}
+        subtitle={
+          isSuccess
+            ? "We're excited to connect with you"
+            : 'Tell us a bit about yourself so we can connect'
+        }
+      />
       <ContentContainer>
-        <PageHeader
-          title={isSuccess ? 'Welcome!' : "I'm New Here"}
-          subtitle={
-            isSuccess
-              ? "We're excited to connect with you"
-              : "We're so glad you're here!"
-          }
-        />
         {isSuccess ? (
           <SuccessConfirmation onSubmitAnother={handleSubmitAnother} />
         ) : (

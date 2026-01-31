@@ -11,6 +11,6 @@ export const ContentContainer = styled.main`
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding: 0 ${({ theme }) => theme.spacing.md};
+  padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.md};
   box-sizing: border-box;
 `;

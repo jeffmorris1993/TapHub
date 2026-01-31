@@ -26,13 +26,13 @@ describe('ImNewHerePage', () => {
   describe('Page Display', () => {
     it('renders page header with title', () => {
       renderWithProviders(<ImNewHerePage />);
-      expect(screen.getByText("I'm New Here")).toBeInTheDocument();
+      expect(screen.getByText("We're glad you're here!")).toBeInTheDocument();
     });
 
     it('renders page header with subtitle', () => {
       renderWithProviders(<ImNewHerePage />);
       expect(
-        screen.getByText("We're so glad you're here!")
+        screen.getByText('Tell us a bit about yourself so we can connect')
       ).toBeInTheDocument();
     });
 
