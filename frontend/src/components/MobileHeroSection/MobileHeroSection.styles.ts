@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const HeroContainer = styled.header`
   position: relative;
   width: 100%;
-  height: 160px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +22,7 @@ export const HeroImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 20%;
   z-index: 1;
 `;
 
@@ -32,11 +32,7 @@ export const HeroOverlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(196, 149, 108, 0.4) 0%,
-    rgba(139, 111, 71, 0.4) 100%
-  );
+  background: linear-gradient(to bottom, rgba(196, 149, 108, 0.4) 0%, rgba(139, 111, 71, 0.4) 100%);
   z-index: 2;
 `;
 

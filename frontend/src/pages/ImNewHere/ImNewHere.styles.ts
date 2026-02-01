@@ -35,7 +35,7 @@ export const DesktopLayout = styled.div`
 export const DesktopLeftPanel = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 90%;
   background-color: ${({ theme }) => theme.colors.surface};
   padding: ${({ theme }) => theme.spacing['2xl']};
   overflow: hidden;
