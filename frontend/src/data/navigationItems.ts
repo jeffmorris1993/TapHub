@@ -6,7 +6,7 @@ export const navigationItems: NavigationItem[] = [
     icon: 'UserPlus',
     title: "I'm New Here",
     subtitle: 'Connect with us',
-    route: '/new-visitor',
+    route: '/new-here',
     order: 1,
     enabled: true,
   },

@@ -1,0 +1,219 @@
+openapi: 3.0.3
+info:
+  title: TapHub Visitor Registration API
+  description: |
+    API for visitor registration on the "I'm New Here" page.
+
+    **Note**: For MVP, this API is mocked in the frontend. The contract
+    defines the expected structure for when a backend is implemented.
+  version: 1.0.0
+  contact:
+    name: TapHub Team
+
+servers:
+  - url: /api/v1
+    description: API base path
+
+paths:
+  /visitors:
+    post:
+      operationId: createVisitor
+      summary: Register a new visitor
+      description: |
+        Submits a visitor registration form. Creates a new visitor record
+        with the provided contact information and interests.
+      tags:
+        - Visitors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VisitorFormData'
+            example:
+              name: "John Doe"
+              email: "john@example.com"
+              phone: "(555) 123-4567"
+              isFirstTime: true
+              interests:
+                - "small-group"
+                - "membership"
+      responses:
+        '201':
+          description: Visitor registration created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitorResponse'
+              example:
+                data:
+                  id: "550e8400-e29b-41d4-a716-446655440000"
+                  name: "John Doe"
+                  email: "john@example.com"
+                  phone: "(555) 123-4567"
+                  isFirstTime: true
+                  interests:
+                    - "small-group"
+                    - "membership"
+                  createdAt: "2026-01-30T10:30:00.000Z"
+                error: null
+                meta:
+                  timestamp: "2026-01-30T10:30:00.000Z"
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                data: null
+                error:
+                  code: "VALIDATION_ERROR"
+                  message: "Invalid request data"
+                  details:
+                    email: "Invalid email format"
+                meta:
+                  timestamp: "2026-01-30T10:30:00.000Z"
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                data: null
+                error:
+                  code: "INTERNAL_ERROR"
+                  message: "An unexpected error occurred"
+                meta:
+                  timestamp: "2026-01-30T10:30:00.000Z"
+
+components:
+  schemas:
+    VisitorFormData:
+      type: object
+      required:
+        - name
+        - email
+        - isFirstTime
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: Visitor's full name
+          example: "John Doe"
+        email:
+          type: string
+          format: email
+          description: Contact email address
+          example: "john@example.com"
+        phone:
+          type: string
+          description: Optional phone number (any format accepted)
+          example: "(555) 123-4567"
+        isFirstTime:
+          type: boolean
+          description: Whether this is the visitor's first visit
+          example: true
+        interests:
+          type: array
+          items:
+            type: string
+            enum:
+              - small-group
+              - membership
+              - volunteer
+              - kids-ministry
+              - youth-ministry
+              - baptism
+          description: Selected ministry interests
+          example:
+            - "small-group"
+            - "membership"
+
+    VisitorRegistration:
+      allOf:
+        - $ref: '#/components/schemas/VisitorFormData'
+        - type: object
+          required:
+            - id
+            - createdAt
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: Unique identifier for the registration
+              example: "550e8400-e29b-41d4-a716-446655440000"
+            createdAt:
+              type: string
+              format: date-time
+              description: Timestamp when registration was created
+              example: "2026-01-30T10:30:00.000Z"
+
+    VisitorResponse:
+      type: object
+      required:
+        - data
+        - error
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/VisitorRegistration'
+        error:
+          type: object
+          nullable: true
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+
+    ErrorResponse:
+      type: object
+      required:
+        - data
+        - error
+        - meta
+      properties:
+        data:
+          type: object
+          nullable: true
+        error:
+          $ref: '#/components/schemas/ApiError'
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+
+    ApiError:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          description: Error code for programmatic handling
+          example: "VALIDATION_ERROR"
+        message:
+          type: string
+          description: Human-readable error message
+          example: "Invalid request data"
+        details:
+          type: object
+          additionalProperties:
+            type: string
+          description: Field-specific error details
+          example:
+            email: "Invalid email format"
+
+    ResponseMeta:
+      type: object
+      required:
+        - timestamp
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          description: Server timestamp for the response
+          example: "2026-01-30T10:30:00.000Z"
+
+tags:
+  - name: Visitors
+    description: Visitor registration operations

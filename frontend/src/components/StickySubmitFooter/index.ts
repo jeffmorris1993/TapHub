@@ -1,0 +1,1 @@
+export { StickySubmitFooter } from './StickySubmitFooter';

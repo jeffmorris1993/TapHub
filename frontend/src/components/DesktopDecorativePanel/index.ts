@@ -1,0 +1,1 @@
+export { DesktopDecorativePanel } from './DesktopDecorativePanel';
