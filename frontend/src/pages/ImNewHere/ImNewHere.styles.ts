@@ -1,19 +1,16 @@
 import styled from '@emotion/styled';
 
 /**
- * Main page container with fixed header/footer layout on mobile,
- * split-panel layout on desktop.
+ * Main page container - fixed to viewport height.
+ * No page-level scrolling; only form content scrolls.
  */
 export const PageContainer = styled.div`
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   background: ${({ theme }) => theme.colors.background};
   overflow: hidden;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    flex-direction: column;
-  }
 `;
 
 /**
@@ -33,13 +30,14 @@ export const DesktopLayout = styled.div`
 
 /**
  * Left panel for desktop - contains title, form, and submit button.
+ * Height: 100% ensures flex children distribute space correctly.
  */
 export const DesktopLeftPanel = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100%;
   background-color: ${({ theme }) => theme.colors.surface};
   padding: ${({ theme }) => theme.spacing['2xl']};
-  padding-left: ${({ theme }) => theme.spacing['2xl']};
   overflow: hidden;
 `;
 
@@ -77,9 +75,11 @@ export const DesktopSubtitle = styled.p`
 
 /**
  * Scrollable form container for desktop.
+ * Only this area scrolls - header and footer stay fixed.
  */
 export const DesktopFormScroll = styled.div`
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: ${({ theme }) => theme.spacing.sm};
@@ -114,10 +114,11 @@ export const MobileLayout = styled.div`
 `;
 
 /**
- * Mobile scrollable content area - the form scroll container.
+ * Mobile scrollable content area - only this area scrolls.
  */
 export const MobileContentScroll = styled.main`
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
   background: ${({ theme }) => theme.colors.background};
