@@ -72,11 +72,6 @@ describe('ImNewHerePage', () => {
   });
 
   describe('Desktop Layout', () => {
-    it('renders decorative panel with checkmark icon', () => {
-      renderWithProviders(<ImNewHerePage />);
-      expect(screen.getByTestId('checkmark-icon')).toBeInTheDocument();
-    });
-
     it('renders decorative panel heading', () => {
       renderWithProviders(<ImNewHerePage />);
       expect(screen.getByText("Let's get you connected")).toBeInTheDocument();
@@ -136,9 +131,9 @@ describe('ImNewHerePage', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        expect(
-          screen.getAllByRole('button', { name: /submit another/i }).length
-        ).toBeGreaterThan(0);
+        expect(screen.getAllByRole('button', { name: /submit another/i }).length).toBeGreaterThan(
+          0
+        );
       });
     });
 

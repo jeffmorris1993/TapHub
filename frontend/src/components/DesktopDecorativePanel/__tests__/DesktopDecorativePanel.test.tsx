@@ -22,23 +22,17 @@ describe('DesktopDecorativePanel', () => {
   it('renders the church quote', () => {
     renderWithTheme(<DesktopDecorativePanel {...defaultProps} />);
 
-    expect(
-      screen.getByText('"Come As You Are and Change As You Come"')
-    ).toBeInTheDocument();
+    expect(screen.getByText('"Come As You Are and Change As You Come"')).toBeInTheDocument();
   });
 
   it('renders the attribution', () => {
     renderWithTheme(<DesktopDecorativePanel {...defaultProps} />);
 
-    expect(
-      screen.getByText("— Nehemiah's Temple of the Apostolic Faith")
-    ).toBeInTheDocument();
+    expect(screen.getByText("— Nehemiah's Temple of the Apostolic Faith")).toBeInTheDocument();
   });
 
   it('renders the decorative image', () => {
-    const { container } = renderWithTheme(
-      <DesktopDecorativePanel {...defaultProps} />
-    );
+    const { container } = renderWithTheme(<DesktopDecorativePanel {...defaultProps} />);
 
     // Image has aria-hidden="true" and is inside display:none container,
     // so use querySelector
@@ -46,17 +40,8 @@ describe('DesktopDecorativePanel', () => {
     expect(image).toHaveAttribute('src', '/images/church-people.jpg');
   });
 
-  it('renders the checkmark icon', () => {
-    renderWithTheme(<DesktopDecorativePanel {...defaultProps} />);
-
-    const icon = screen.getByTestId('checkmark-icon');
-    expect(icon).toBeInTheDocument();
-  });
-
   it('is hidden on mobile viewport', () => {
-    const { container } = renderWithTheme(
-      <DesktopDecorativePanel {...defaultProps} />
-    );
+    const { container } = renderWithTheme(<DesktopDecorativePanel {...defaultProps} />);
 
     // The component should have display: none on mobile (handled by CSS)
     // In JSDOM, display:none still renders the element but hides it from accessibility tree
@@ -64,9 +49,7 @@ describe('DesktopDecorativePanel', () => {
   });
 
   it('renders as aside element for accessibility', () => {
-    const { container } = renderWithTheme(
-      <DesktopDecorativePanel {...defaultProps} />
-    );
+    const { container } = renderWithTheme(<DesktopDecorativePanel {...defaultProps} />);
 
     // The aside element has display:none by default (desktop-only panel)
     // Use querySelector to verify it renders as aside element
