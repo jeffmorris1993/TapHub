@@ -74,7 +74,7 @@
 
 - [ ] T022 [P] [US1] Write failing test for ScheduleSkeleton in `frontend/src/components/skeletons/__tests__/ScheduleSkeleton.test.tsx`
 - [ ] T023 [P] [US1] Write failing test for ScheduleItem in `frontend/src/components/ScheduleItem/__tests__/ScheduleItem.test.tsx`
-- [ ] T024 [P] [US1] Write failing test for ScheduleList in `frontend/src/components/ScheduleList/__tests__/ScheduleList.test.tsx`
+- [ ] T024 [P] [US1] Write failing test for ScheduleList in `frontend/src/components/ScheduleList/__tests__/ScheduleList.test.tsx` (include test verifying items render in ascending order by `order` field - FR-005)
 
 ### Implementation for User Story 1
 
@@ -146,7 +146,7 @@
 
 - [ ] T050 [P] Verify responsive layout at 320px and 1440px viewports
 - [ ] T051 [P] Add keyboard navigation and ARIA labels to interactive elements
-- [ ] T052 [P] Verify "Today" navigation link shows as active in Header
+- [ ] T052 [P] Verify "Today" navigation link shows as active in Header when pathname is `/today` (check NavLink active class or aria-current attribute - FR-009)
 - [ ] T053 Run full test suite and verify all tests pass: `npm test`
 - [ ] T054 Manual validation against Figma design for visual accuracy
 - [ ] T055 Run quickstart.md validation checklist
