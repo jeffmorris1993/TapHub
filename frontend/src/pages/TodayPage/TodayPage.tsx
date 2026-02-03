@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { Header } from '@/components/Header';
 import { PageHeader } from '@/components/PageHeader';
 import { ScheduleList } from '@/components/ScheduleList';
 import { AnnouncementsList } from '@/components/AnnouncementsList';
@@ -24,6 +25,7 @@ export const TodayPage: FC = () => {
 
   return (
     <PageContainer>
+      <Header />
       <PageHeader title="Today at Nehemiah's Temple" subtitle={currentDate} />
       <ContentContainer>
         <SectionSpacing>
