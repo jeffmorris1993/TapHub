@@ -866,6 +866,31 @@ CREATE TABLE announcements (
     )
 );
 
+-- Daily Schedule Table (for "Today at Nehemiah" page)
+-- Represents recurring or one-time schedule items for daily display
+CREATE TABLE daily_schedule (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name VARCHAR(100) NOT NULL,
+    location VARCHAR(50) NOT NULL,
+    time_display VARCHAR(20) NOT NULL,  -- e.g., "10:00 AM" (pre-formatted for display)
+    day_of_week INTEGER,                -- 0=Sunday, 1=Monday, etc. (NULL for one-time events)
+    specific_date DATE,                 -- For one-time events (NULL for recurring)
+    display_order INTEGER NOT NULL DEFAULT 0,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_by UUID REFERENCES users(id),
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW(),
+
+    -- Either day_of_week OR specific_date must be set
+    CONSTRAINT valid_schedule_type CHECK (
+        (day_of_week IS NOT NULL AND specific_date IS NULL) OR
+        (day_of_week IS NULL AND specific_date IS NOT NULL)
+    ),
+    CONSTRAINT valid_day_of_week CHECK (
+        day_of_week IS NULL OR (day_of_week >= 0 AND day_of_week <= 6)
+    )
+);
+
 -- Users Table (Google SSO - NO PASSWORDS!)
 CREATE TABLE users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -944,6 +969,10 @@ CREATE INDEX idx_events_created_by ON events(created_by);
 
 CREATE INDEX idx_announcements_status ON announcements(status);
 CREATE INDEX idx_announcements_publish_date ON announcements(publish_date);
+
+CREATE INDEX idx_daily_schedule_day ON daily_schedule(day_of_week) WHERE is_active = TRUE;
+CREATE INDEX idx_daily_schedule_date ON daily_schedule(specific_date) WHERE is_active = TRUE;
+CREATE INDEX idx_daily_schedule_order ON daily_schedule(display_order);
 
 CREATE INDEX idx_approvals_status ON approvals(status);
 CREATE INDEX idx_approvals_item ON approvals(item_id, item_type);
