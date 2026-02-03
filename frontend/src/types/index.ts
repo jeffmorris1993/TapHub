@@ -47,3 +47,5 @@ export interface PublicLandingPageData {
   navigationItems: NavigationItem[];
   serviceTimes: ServiceTime[];
 }
+
+export * from './today';

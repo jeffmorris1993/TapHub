@@ -24,11 +24,11 @@
 
 **Purpose**: Project initialization, dependencies, and shared infrastructure
 
-- [ ] T001 Install react-loading-skeleton dependency: `npm install react-loading-skeleton`
-- [ ] T002 [P] Create TypeScript types in `frontend/src/types/today.ts` (ScheduleEvent, Announcement, component props)
-- [ ] T003 [P] Export types from `frontend/src/types/index.ts`
-- [ ] T004 [P] Create mock data in `frontend/src/data/todayMockData.ts` (mockScheduleEvents, mockAnnouncements)
-- [ ] T005 Add GET method support to `frontend/src/services/api/apiClient.ts` with mockGet handler for schedule and announcements endpoints
+- [x] T001 Install react-loading-skeleton dependency: `npm install react-loading-skeleton`
+- [x] T002 [P] Create TypeScript types in `frontend/src/types/today.ts` (ScheduleEvent, Announcement, component props)
+- [x] T003 [P] Export types from `frontend/src/types/index.ts`
+- [x] T004 [P] Create mock data in `frontend/src/data/todayMockData.ts` (mockScheduleEvents, mockAnnouncements)
+- [x] T005 Add GET method support to `frontend/src/services/api/apiClient.ts` with mockGet handler for schedule and announcements endpoints
 
 ---
 
@@ -40,25 +40,25 @@
 
 ### Tests for Foundational Components (TDD - Write First)
 
-- [ ] T006 [P] Write failing test for Card component in `frontend/src/components/Card/__tests__/Card.test.tsx`
-- [ ] T007 [P] Write failing test for EmptyState component in `frontend/src/components/EmptyState/__tests__/EmptyState.test.tsx`
-- [ ] T008 [P] Write failing test for ErrorState component in `frontend/src/components/ErrorState/__tests__/ErrorState.test.tsx`
-- [ ] T009 [P] Write failing test for todayService in `frontend/src/services/__tests__/todayService.test.ts`
-- [ ] T010 [P] Write failing test for useTodayData hook in `frontend/src/hooks/__tests__/useTodayData.test.ts`
+- [x] T006 [P] Write failing test for Card component in `frontend/src/components/Card/__tests__/Card.test.tsx`
+- [x] T007 [P] Write failing test for EmptyState component in `frontend/src/components/EmptyState/__tests__/EmptyState.test.tsx`
+- [x] T008 [P] Write failing test for ErrorState component in `frontend/src/components/ErrorState/__tests__/ErrorState.test.tsx`
+- [x] T009 [P] Write failing test for todayService in `frontend/src/services/__tests__/todayService.test.ts`
+- [x] T010 [P] Write failing test for useTodayData hook in `frontend/src/hooks/__tests__/useTodayData.test.ts`
 
 ### Implementation for Foundational Components
 
-- [ ] T011 [P] Create Card component in `frontend/src/components/Card/Card.tsx` (generic container with shadow, rounded corners, optional heading)
-- [ ] T012 [P] Create Card styles in `frontend/src/components/Card/Card.styles.ts`
-- [ ] T013 [P] Create Card index in `frontend/src/components/Card/index.ts`
-- [ ] T014 [P] Create EmptyState component in `frontend/src/components/EmptyState/EmptyState.tsx` (message with optional icon)
-- [ ] T015 [P] Create EmptyState styles in `frontend/src/components/EmptyState/EmptyState.styles.ts`
-- [ ] T016 [P] Create EmptyState index in `frontend/src/components/EmptyState/index.ts`
-- [ ] T017 [P] Create ErrorState component in `frontend/src/components/ErrorState/ErrorState.tsx` (error message with retry button)
-- [ ] T018 [P] Create ErrorState styles in `frontend/src/components/ErrorState/ErrorState.styles.ts`
-- [ ] T019 [P] Create ErrorState index in `frontend/src/components/ErrorState/index.ts`
-- [ ] T020 Create todayService in `frontend/src/services/todayService.ts` (getSchedule, getAnnouncements methods)
-- [ ] T021 Create useTodayData hook in `frontend/src/hooks/useTodayData.ts` (loading, error, retry states)
+- [x] T011 [P] Create Card component in `frontend/src/components/Card/Card.tsx` (generic container with shadow, rounded corners, optional heading)
+- [x] T012 [P] Create Card styles in `frontend/src/components/Card/Card.styles.ts`
+- [x] T013 [P] Create Card index in `frontend/src/components/Card/index.ts`
+- [x] T014 [P] Create EmptyState component in `frontend/src/components/EmptyState/EmptyState.tsx` (message with optional icon)
+- [x] T015 [P] Create EmptyState styles in `frontend/src/components/EmptyState/EmptyState.styles.ts`
+- [x] T016 [P] Create EmptyState index in `frontend/src/components/EmptyState/index.ts`
+- [x] T017 [P] Create ErrorState component in `frontend/src/components/ErrorState/ErrorState.tsx` (error message with retry button)
+- [x] T018 [P] Create ErrorState styles in `frontend/src/components/ErrorState/ErrorState.styles.ts`
+- [x] T019 [P] Create ErrorState index in `frontend/src/components/ErrorState/index.ts`
+- [x] T020 Create todayService in `frontend/src/services/todayService.ts` (getSchedule, getAnnouncements methods)
+- [x] T021 Create useTodayData hook in `frontend/src/hooks/useTodayData.ts` (loading, error, retry states)
 
 **Checkpoint**: Foundation ready - all tests passing, reusable components available
 
@@ -72,20 +72,20 @@
 
 ### Tests for User Story 1 (TDD - Write First)
 
-- [ ] T022 [P] [US1] Write failing test for ScheduleSkeleton in `frontend/src/components/skeletons/__tests__/ScheduleSkeleton.test.tsx`
-- [ ] T023 [P] [US1] Write failing test for ScheduleItem in `frontend/src/components/ScheduleItem/__tests__/ScheduleItem.test.tsx`
-- [ ] T024 [P] [US1] Write failing test for ScheduleList in `frontend/src/components/ScheduleList/__tests__/ScheduleList.test.tsx` (include test verifying items render in ascending order by `order` field - FR-005)
+- [x] T022 [P] [US1] Write failing test for ScheduleSkeleton in `frontend/src/components/skeletons/__tests__/ScheduleSkeleton.test.tsx`
+- [x] T023 [P] [US1] Write failing test for ScheduleItem in `frontend/src/components/ScheduleItem/__tests__/ScheduleItem.test.tsx`
+- [x] T024 [P] [US1] Write failing test for ScheduleList in `frontend/src/components/ScheduleList/__tests__/ScheduleList.test.tsx` (include test verifying items render in ascending order by `order` field - FR-005)
 
 ### Implementation for User Story 1
 
-- [ ] T025 [P] [US1] Create ScheduleSkeleton component in `frontend/src/components/skeletons/ScheduleSkeleton.tsx`
-- [ ] T026 [P] [US1] Create skeletons index in `frontend/src/components/skeletons/index.ts`
-- [ ] T027 [P] [US1] Create ScheduleItem component in `frontend/src/components/ScheduleItem/ScheduleItem.tsx` (displays time in gold, name, location)
-- [ ] T028 [P] [US1] Create ScheduleItem styles in `frontend/src/components/ScheduleItem/ScheduleItem.styles.ts`
-- [ ] T029 [P] [US1] Create ScheduleItem index in `frontend/src/components/ScheduleItem/index.ts`
-- [ ] T030 [US1] Create ScheduleList component in `frontend/src/components/ScheduleList/ScheduleList.tsx` (uses Card, handles loading/empty/error states)
-- [ ] T031 [US1] Create ScheduleList styles in `frontend/src/components/ScheduleList/ScheduleList.styles.ts`
-- [ ] T032 [US1] Create ScheduleList index in `frontend/src/components/ScheduleList/index.ts`
+- [x] T025 [P] [US1] Create ScheduleSkeleton component in `frontend/src/components/skeletons/ScheduleSkeleton.tsx`
+- [x] T026 [P] [US1] Create skeletons index in `frontend/src/components/skeletons/index.ts`
+- [x] T027 [P] [US1] Create ScheduleItem component in `frontend/src/components/ScheduleItem/ScheduleItem.tsx` (displays time in gold, name, location)
+- [x] T028 [P] [US1] Create ScheduleItem styles in `frontend/src/components/ScheduleItem/ScheduleItem.styles.ts`
+- [x] T029 [P] [US1] Create ScheduleItem index in `frontend/src/components/ScheduleItem/index.ts`
+- [x] T030 [US1] Create ScheduleList component in `frontend/src/components/ScheduleList/ScheduleList.tsx` (uses Card, handles loading/empty/error states)
+- [x] T031 [US1] Create ScheduleList styles in `frontend/src/components/ScheduleList/ScheduleList.styles.ts`
+- [x] T032 [US1] Create ScheduleList index in `frontend/src/components/ScheduleList/index.ts`
 
 **Checkpoint**: Schedule section complete - displays events with skeleton loading, empty state, and error handling
 
@@ -99,15 +99,15 @@
 
 ### Tests for User Story 2 (TDD - Write First)
 
-- [ ] T033 [P] [US2] Write failing test for TodayPage in `frontend/src/pages/TodayPage/__tests__/TodayPage.test.tsx` (title, date display, uses PageHeader)
+- [x] T033 [P] [US2] Write failing test for TodayPage in `frontend/src/pages/TodayPage/__tests__/TodayPage.test.tsx` (title, date display, uses PageHeader)
 
 ### Implementation for User Story 2
 
-- [ ] T034 [US2] Create TodayPage component in `frontend/src/pages/TodayPage/TodayPage.tsx` (uses existing PageHeader with title and formatted date)
-- [ ] T035 [US2] Create TodayPage styles in `frontend/src/pages/TodayPage/TodayPage.styles.ts`
-- [ ] T036 [US2] Create TodayPage index in `frontend/src/pages/TodayPage/index.ts`
-- [ ] T037 [US2] Create formatDate utility function in TodayPage using Intl.DateTimeFormat for "Weekday, Month Day, Year" format
-- [ ] T038 [US2] Add /today route to `frontend/src/App.tsx`
+- [x] T034 [US2] Create TodayPage component in `frontend/src/pages/TodayPage/TodayPage.tsx` (uses existing PageHeader with title and formatted date)
+- [x] T035 [US2] Create TodayPage styles in `frontend/src/pages/TodayPage/TodayPage.styles.ts`
+- [x] T036 [US2] Create TodayPage index in `frontend/src/pages/TodayPage/index.ts`
+- [x] T037 [US2] Create formatDate utility function in TodayPage using Intl.DateTimeFormat for "Weekday, Month Day, Year" format
+- [x] T038 [US2] Add /today route to `frontend/src/App.tsx`
 
 **Checkpoint**: Page accessible at /today with correct title and date, schedule section integrated
 
@@ -121,20 +121,20 @@
 
 ### Tests for User Story 3 (TDD - Write First)
 
-- [ ] T039 [P] [US3] Write failing test for AnnouncementSkeleton in `frontend/src/components/skeletons/__tests__/AnnouncementSkeleton.test.tsx`
-- [ ] T040 [P] [US3] Write failing test for AnnouncementCard in `frontend/src/components/AnnouncementCard/__tests__/AnnouncementCard.test.tsx`
+- [x] T039 [P] [US3] Write failing test for AnnouncementSkeleton in `frontend/src/components/skeletons/__tests__/AnnouncementSkeleton.test.tsx`
+- [x] T040 [P] [US3] Write failing test for AnnouncementCard in `frontend/src/components/AnnouncementCard/__tests__/AnnouncementCard.test.tsx`
 
 ### Implementation for User Story 3
 
-- [ ] T041 [P] [US3] Create AnnouncementSkeleton component in `frontend/src/components/skeletons/AnnouncementSkeleton.tsx`
-- [ ] T042 [P] [US3] Update skeletons index to export AnnouncementSkeleton in `frontend/src/components/skeletons/index.ts`
-- [ ] T043 [P] [US3] Create AnnouncementCard component in `frontend/src/components/AnnouncementCard/AnnouncementCard.tsx` (icon with lucide-react, title, description)
-- [ ] T044 [P] [US3] Create AnnouncementCard styles in `frontend/src/components/AnnouncementCard/AnnouncementCard.styles.ts`
-- [ ] T045 [P] [US3] Create AnnouncementCard index in `frontend/src/components/AnnouncementCard/index.ts`
-- [ ] T046 [US3] Create AnnouncementsList component in `frontend/src/components/AnnouncementsList/AnnouncementsList.tsx` (handles loading/empty/error states)
-- [ ] T047 [US3] Create AnnouncementsList styles in `frontend/src/components/AnnouncementsList/AnnouncementsList.styles.ts`
-- [ ] T048 [US3] Create AnnouncementsList index in `frontend/src/components/AnnouncementsList/index.ts`
-- [ ] T049 [US3] Integrate AnnouncementsList into TodayPage in `frontend/src/pages/TodayPage/TodayPage.tsx`
+- [x] T041 [P] [US3] Create AnnouncementSkeleton component in `frontend/src/components/skeletons/AnnouncementSkeleton.tsx`
+- [x] T042 [P] [US3] Update skeletons index to export AnnouncementSkeleton in `frontend/src/components/skeletons/index.ts`
+- [x] T043 [P] [US3] Create AnnouncementCard component in `frontend/src/components/AnnouncementCard/AnnouncementCard.tsx` (icon with lucide-react, title, description)
+- [x] T044 [P] [US3] Create AnnouncementCard styles in `frontend/src/components/AnnouncementCard/AnnouncementCard.styles.ts`
+- [x] T045 [P] [US3] Create AnnouncementCard index in `frontend/src/components/AnnouncementCard/index.ts`
+- [x] T046 [US3] Create AnnouncementsList component in `frontend/src/components/AnnouncementsList/AnnouncementsList.tsx` (handles loading/empty/error states)
+- [x] T047 [US3] Create AnnouncementsList styles in `frontend/src/components/AnnouncementsList/AnnouncementsList.styles.ts`
+- [x] T048 [US3] Create AnnouncementsList index in `frontend/src/components/AnnouncementsList/index.ts`
+- [x] T049 [US3] Integrate AnnouncementsList into TodayPage in `frontend/src/pages/TodayPage/TodayPage.tsx`
 
 **Checkpoint**: Announcements section complete - displays below schedule with icon, title, description, and proper states
 
@@ -144,12 +144,12 @@
 
 **Purpose**: Responsive design verification, accessibility, and final integration testing
 
-- [ ] T050 [P] Verify responsive layout at 320px and 1440px viewports
-- [ ] T051 [P] Add keyboard navigation and ARIA labels to interactive elements
-- [ ] T052 [P] Verify "Today" navigation link shows as active in Header when pathname is `/today` (check NavLink active class or aria-current attribute - FR-009)
-- [ ] T053 Run full test suite and verify all tests pass: `npm test`
+- [x] T050 [P] Verify responsive layout at 320px and 1440px viewports
+- [x] T051 [P] Add keyboard navigation and ARIA labels to interactive elements
+- [x] T052 [P] Verify "Today" navigation link shows as active in Header when pathname is `/today` (check NavLink active class or aria-current attribute - FR-009)
+- [x] T053 Run full test suite and verify all tests pass: `npm test`
 - [ ] T054 Manual validation against Figma design for visual accuracy
-- [ ] T055 Run quickstart.md validation checklist
+- [x] T055 Run quickstart.md validation checklist
 
 ---
 

@@ -3,6 +3,7 @@ import { ThemeProvider } from '@/theme';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { PublicLanding } from '@/pages/PublicLanding';
 import { ImNewHerePage } from '@/pages/ImNewHere';
+import { TodayPage } from '@/pages/TodayPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Routes>
             <Route path="/" element={<PublicLanding />} />
             <Route path="/new-here" element={<ImNewHerePage />} />
+            <Route path="/today" element={<TodayPage />} />
           </Routes>
         </Router>
       </ThemeProvider>
