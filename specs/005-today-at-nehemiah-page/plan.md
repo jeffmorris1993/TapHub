@@ -1,48 +1,44 @@
-# Implementation Plan: Today at Nehemiah Page
+# Implementation Plan: Today at Nehemiah Page (Enhanced)
 
-**Branch**: `005-today-at-nehemiah-page` | **Date**: 2026-02-01 | **Spec**: [spec.md](./spec.md)
-**Input**: Feature specification from `/specs/005-today-at-nehemiah-page/spec.md`
+**Branch**: `005-today-at-nehemiah-page` | **Date**: 2026-02-03 | **Spec**: [spec.md](./spec.md)
+**Input**: Feature specification with enhanced mobile/desktop designs including schedule status indicators, announcement Learn More, and desktop Quick Links
+
+**Note**: This plan updates the existing Today page implementation with new features from Figma designs (node-id=97-1199 mobile, node-id=97-958 desktop).
 
 ## Summary
 
-Create a "Today at Nehemiah's Temple" page that displays the current day's schedule of events and church announcements. The page fetches data from mock API endpoints (designed for easy backend migration), uses react-loading-skeleton for loading states, and follows a TDD approach. UI components will be refactored for reusability where patterns exist.
-
-**Key Technical Decisions**:
-- Mock API with service layer abstraction for easy backend switching
-- Skeleton loading via react-loading-skeleton
-- TDD with Vitest + React Testing Library
-- Refactor existing components (PageHeader, Card patterns) for reuse
+Enhance the existing Today at Nehemiah page with:
+1. **Schedule Status Indicators**: "NOW" badge for currently active events, "UP NEXT" divider for upcoming events, auto-refresh every 1 minute
+2. **Location Type Icons**: Building icon for in-person, video icon for online/Zoom events
+3. **Announcement Learn More**: Expandable content to reveal full announcement details
+4. **Quick Links (Desktop Only)**: Two-column layout with sidebar containing Live Stream, Prayer Requests, Contact Staff links
+5. **Mock Data Strategy**: Provide relative time-based mock data that always shows NOW/UP NEXT badges for consistent development/testing
 
 ## Technical Context
 
 **Language/Version**: TypeScript 5.9.3
 **Primary Dependencies**: React 19, React Router v7, Emotion 11, lucide-react, react-loading-skeleton
-**Storage**: Mock API (localStorage) for MVP, designed for backend migration
-**Testing**: Vitest + React Testing Library (TDD approach)
-**Target Platform**: Web (mobile-first, responsive 320px-1440px)
+**Storage**: Mock API with localStorage (MVP), designed for backend migration
+**Testing**: Vitest + React Testing Library
+**Target Platform**: Web (responsive: 320px - 1440px)
 **Project Type**: Web application (frontend-only for this feature)
-**Performance Goals**: Page load < 2 seconds on 3G, skeleton loading for perceived performance
-**Constraints**: Follow Figma design exactly, WCAG 2.1 AA accessibility
-**Scale/Scope**: Single page with 2 data sections (schedule, announcements)
+**Performance Goals**: Page load < 2 seconds, schedule status update every 1 minute
+**Constraints**: Mobile-first design, WCAG 2.1 AA accessibility
+**Scale/Scope**: Single page enhancement, ~10 new/modified components
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-| Principle | Status | Notes |
-|-----------|--------|-------|
-| I. TDD | ✅ PASS | Tests written first for all components and services |
-| II. UX | ✅ PASS | Mobile-first, skeleton loading, follows Figma exactly |
-| III. Error Handling | ✅ PASS | Error states with retry, user-friendly messages |
-| IV. Security | ✅ PASS | No auth required (public page), input sanitization N/A |
-| V. Simplicity | ✅ PASS | Service layer abstraction, no over-engineering |
+| Principle | Status | Evidence |
+|-----------|--------|----------|
+| I. Test-Driven Development | ✅ PASS | Tests will be written first for all new components; existing test patterns followed |
+| II. Compelling User Experience | ✅ PASS | Mobile-first design from Figma; < 2s load target; WCAG 2.1 AA compliance |
+| III. Error Handling & Logging | ✅ PASS | Existing error/retry patterns reused; loading states via react-loading-skeleton |
+| IV. Security & Privacy First | ✅ PASS | Read-only public data; no auth required for this page |
+| V. Simplicity & Pragmatism | ✅ PASS | Enhancing existing components; no new state management; styles in separate files |
 
-**Technical Stack Compliance**:
-- ✅ TypeScript 5+ strict mode
-- ✅ React 18+ (using React 19)
-- ✅ Emotion 11 (CSS-in-JS)
-- ✅ Vitest for testing
-- ✅ No `any` types without justification
+**Constitution Compliance**: All gates pass. No violations requiring justification.
 
 ## Project Structure
 
@@ -54,9 +50,8 @@ specs/005-today-at-nehemiah-page/
 ├── research.md          # Phase 0 output
 ├── data-model.md        # Phase 1 output
 ├── quickstart.md        # Phase 1 output
-├── contracts/           # Phase 1 output
-│   └── today-api.md     # Mock API contract
-└── tasks.md             # Phase 2 output (/speckit.tasks)
+├── contracts/           # Phase 1 output (mock API contracts)
+└── tasks.md             # Phase 2 output (/speckit.tasks command)
 ```
 
 ### Source Code (repository root)
@@ -64,117 +59,64 @@ specs/005-today-at-nehemiah-page/
 ```text
 frontend/src/
 ├── components/
-│   ├── PageHeader/              # EXISTING - reuse as-is
-│   │   ├── __tests__/
-│   │   ├── PageHeader.tsx
-│   │   └── PageHeader.styles.ts
-│   ├── Card/                    # NEW - generic card container
-│   │   ├── __tests__/
-│   │   │   └── Card.test.tsx
-│   │   ├── Card.tsx
-│   │   ├── Card.styles.ts
-│   │   └── index.ts
-│   ├── ScheduleItem/            # NEW - schedule event row
-│   │   ├── __tests__/
-│   │   │   └── ScheduleItem.test.tsx
-│   │   ├── ScheduleItem.tsx
-│   │   ├── ScheduleItem.styles.ts
-│   │   └── index.ts
-│   ├── ScheduleList/            # NEW - schedule list with loading
-│   │   ├── __tests__/
-│   │   │   └── ScheduleList.test.tsx
-│   │   ├── ScheduleList.tsx
-│   │   ├── ScheduleList.styles.ts
-│   │   └── index.ts
-│   ├── AnnouncementCard/        # NEW - announcement display
-│   │   ├── __tests__/
-│   │   │   └── AnnouncementCard.test.tsx
-│   │   ├── AnnouncementCard.tsx
-│   │   ├── AnnouncementCard.styles.ts
-│   │   └── index.ts
-│   ├── EmptyState/              # NEW - reusable empty state
-│   │   ├── __tests__/
-│   │   │   └── EmptyState.test.tsx
-│   │   ├── EmptyState.tsx
-│   │   ├── EmptyState.styles.ts
-│   │   └── index.ts
-│   ├── ErrorState/              # NEW - reusable error with retry
-│   │   ├── __tests__/
-│   │   │   └── ErrorState.test.tsx
-│   │   ├── ErrorState.tsx
-│   │   ├── ErrorState.styles.ts
-│   │   └── index.ts
-│   └── skeletons/               # NEW - skeleton loading components
-│       ├── __tests__/
-│       │   ├── ScheduleSkeleton.test.tsx
-│       │   └── AnnouncementSkeleton.test.tsx
-│       ├── ScheduleSkeleton.tsx
-│       ├── AnnouncementSkeleton.tsx
-│       └── index.ts
+│   ├── ScheduleItem/
+│   │   ├── ScheduleItem.tsx           # UPDATE: Add NOW badge, location icon
+│   │   ├── ScheduleItem.styles.ts     # UPDATE: Add NOW styling, icon styles
+│   │   ├── index.ts
+│   │   └── __tests__/
+│   │       └── ScheduleItem.test.tsx  # UPDATE: Test NOW/UP NEXT states
+│   ├── ScheduleList/
+│   │   ├── ScheduleList.tsx           # UPDATE: Add UP NEXT divider logic
+│   │   ├── ScheduleList.styles.ts     # UPDATE: Add UP NEXT divider styles
+│   │   ├── index.ts
+│   │   └── __tests__/
+│   │       └── ScheduleList.test.tsx  # UPDATE: Test divider rendering
+│   ├── AnnouncementCard/
+│   │   ├── AnnouncementCard.tsx       # UPDATE: Add Learn More expand/collapse
+│   │   ├── AnnouncementCard.styles.ts # UPDATE: Add expanded state styles
+│   │   ├── index.ts
+│   │   └── __tests__/
+│   │       └── AnnouncementCard.test.tsx # UPDATE: Test expand/collapse
+│   ├── QuickLinks/                    # NEW: Desktop-only component
+│   │   ├── QuickLinks.tsx
+│   │   ├── QuickLinks.styles.ts
+│   │   ├── index.ts
+│   │   └── __tests__/
+│   │       └── QuickLinks.test.tsx
+│   └── QuickLinkItem/                 # NEW: Individual link component
+│       ├── QuickLinkItem.tsx
+│       ├── QuickLinkItem.styles.ts
+│       ├── index.ts
+│       └── __tests__/
+│           └── QuickLinkItem.test.tsx
 ├── pages/
-│   └── TodayPage/               # NEW - main page component
-│       ├── __tests__/
-│       │   └── TodayPage.test.tsx
-│       ├── TodayPage.tsx
-│       ├── TodayPage.styles.ts
-│       └── index.ts
-├── services/
-│   ├── api/
-│   │   └── apiClient.ts         # MODIFY - add GET support
-│   ├── todayService.ts          # NEW - schedule/announcements API
-│   └── __tests__/
-│       └── todayService.test.ts # NEW - service tests
-├── hooks/
-│   ├── useTodayData.ts          # NEW - data fetching hook
-│   └── __tests__/
-│       └── useTodayData.test.ts # NEW - hook tests
-├── types/
-│   └── today.ts                 # NEW - Today page types
+│   └── TodayPage/
+│       ├── TodayPage.tsx              # UPDATE: Two-column layout, Quick Links
+│       ├── TodayPage.styles.ts        # UPDATE: Responsive two-column grid
+│       └── __tests__/
+│           └── TodayPage.test.tsx     # UPDATE: Test responsive layout
 ├── data/
-│   └── todayMockData.ts         # NEW - mock schedule/announcements
-└── App.tsx                      # MODIFY - add /today route
+│   └── todayMockData.ts               # UPDATE: Add startTime/endTime, fullDescription
+├── hooks/
+│   ├── useTodayData.ts                # UPDATE: Add auto-refresh interval
+│   ├── useScheduleStatus.ts           # NEW: NOW/UP NEXT calculation logic
+│   └── __tests__/
+│       ├── useTodayData.test.ts       # UPDATE: Test auto-refresh
+│       └── useScheduleStatus.test.ts  # NEW: Test status calculations
+├── types/
+│   └── today.ts                       # UPDATE: Add new fields to interfaces
+├── services/
+│   ├── todayService.ts                # UPDATE: Add quickLinks endpoint
+│   └── api/
+│       └── apiClient.ts               # UPDATE: Add quickLinks mock handler
+└── utils/
+    ├── scheduleUtils.ts               # NEW: Time comparison utilities
+    └── __tests__/
+        └── scheduleUtils.test.ts      # NEW: Test time utilities
 ```
 
-**Structure Decision**: Frontend-only feature extending the existing web application structure. Components follow the established pattern of co-located `__tests__/` directories. New reusable components (Card, EmptyState, ErrorState) extracted for future use.
+**Structure Decision**: Follows existing frontend-only pattern. All new components use the established `ComponentName/` folder structure with separate `.styles.ts` files and co-located `__tests__/` directories.
 
 ## Complexity Tracking
 
-> No violations - design follows simplicity principle.
-
-| Decision | Rationale |
-|----------|-----------|
-| Service abstraction | Minimal overhead, enables easy backend switch per spec requirement |
-| Separate skeleton components | Reusable, matches react-loading-skeleton patterns |
-| Generic Card component | Observed pattern in Figma, enables future reuse |
-
-## Implementation Approach
-
-### TDD Workflow
-
-For each component/service:
-1. **RED**: Write failing test based on acceptance criteria
-2. **GREEN**: Implement minimum code to pass test
-3. **REFACTOR**: Clean up while tests pass
-
-### Component Refactoring Strategy
-
-**Existing Components to Reuse**:
-1. `PageHeader` - Use directly for "Today at Nehemiah's Temple" + date subtitle
-2. `Header` - Already integrated with navigation, no changes needed
-
-**New Reusable Components to Extract**:
-1. `Card` - Generic card container with shadow/rounded corners (pattern from Figma)
-2. `EmptyState` - Generic empty state message (used by schedule + announcements)
-3. `ErrorState` - Generic error with retry button (used across data-fetching sections)
-
-### Data Fetching Architecture
-
-```
-TodayPage
-    └── useTodayData() hook
-            └── todayService.getSchedule() / getAnnouncements()
-                    └── apiClient.get()
-                            └── mockGet() (MVP) / axios (future)
-```
-
-**Switch Strategy**: Set `VITE_USE_MOCK_API=false` + implement real GET endpoints in apiClient.
+> No violations - all gates pass.
