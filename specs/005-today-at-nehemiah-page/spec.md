@@ -86,6 +86,7 @@ As a church member on a desktop device, I want to see quick links to common reso
 - What happens when no event is currently in progress? No "NOW" badge is displayed; the first upcoming event shows the "UP NEXT" divider
 - What happens when all events for the day have passed? Events are displayed in their past state without "NOW" or "UP NEXT" indicators
 - What happens if the user clicks "Learn More" and no additional content exists? Display the announcement details inline or show a message that full details are not available
+- What happens when multiple events have overlapping time ranges? All events whose time range includes the current time display the "NOW" badge simultaneously
 
 ## Requirements *(mandatory)*
 
@@ -107,6 +108,7 @@ As a church member on a desktop device, I want to see quick links to common reso
 - **FR-011**: System MUST display an "UP NEXT" divider/label between the current event and the next upcoming event
 - **FR-012**: Schedule items MUST display a location type icon (building icon for in-person, video/monitor icon for online/Zoom events)
 - **FR-013**: Schedule card MUST have visual styling consistent with the design (rounded corners, shadows)
+- **FR-026**: System MUST auto-refresh the "NOW" badge and "UP NEXT" indicator every 1 minute while the page is active
 
 #### Announcements (Mobile & Desktop)
 - **FR-014**: System MUST display an "Announcements" section with current church announcements
@@ -158,6 +160,8 @@ As a church member on a desktop device, I want to see quick links to common reso
 - Q: How does the "NOW" badge determine which event is current? → A: Compare current time against event start and end times; the event whose time range includes the current time shows the "NOW" badge
 - Q: What should "Learn More" do when clicked? → A: Expand inline to show the full announcement description/details, or navigate to a detail modal (implementation can choose the UX pattern)
 - Q: Should Quick Links be configurable or hardcoded? → A: For MVP, hardcode the three links (Live Stream, Prayer Requests, Contact Staff); future iterations may make them configurable
+- Q: Should the "NOW" badge and "UP NEXT" indicator update automatically in real-time? → A: Auto-update every 1 minute (poll/interval)
+- Q: If two events have overlapping time ranges, which event should show the "NOW" badge? → A: All overlapping events show "NOW" badge
 
 ## Assumptions
 
